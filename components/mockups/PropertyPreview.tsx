@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Armchair, Bed, Leaf, Mountain, Utensils, Wifi, type LucideIcon } from "lucide-react";
 import type { CSSProperties } from "react";
 import { Logo } from "@/components/ui/Logo";
 import { personalization } from "@/lib/content";
@@ -36,6 +37,15 @@ const theme = {
   },
 } as const;
 
+const amenityIcons: Record<string, LucideIcon> = {
+  leaf: Leaf,
+  bed: Bed,
+  mountain: Mountain,
+  utensils: Utensils,
+  armchair: Armchair,
+  wifi: Wifi,
+};
+
 /** Sitio de alojamiento en miniatura; solo cambia la identidad visual. */
 export function PropertyPreview({ variant, className = "", style }: PropertyPreviewProps) {
   const t = theme[variant];
@@ -45,11 +55,7 @@ export function PropertyPreview({ variant, className = "", style }: PropertyPrev
   return (
     <div className={`absolute overflow-hidden rounded-lg bg-surface ${className}`} style={style}>
       <div className="flex items-center justify-between px-4 py-[10px] text-[8px] text-white" style={{ background: t.navBg }}>
-        {variant === "niebla" ? (
-          <Logo variant="dark" className="h-[22px]" alt="" />
-        ) : (
-          <span className="font-serif text-[13px]">{site.name}</span>
-        )}
+        <Logo variant="dark" className="h-[22px]" alt="" />
         <span className="flex gap-3">
           {nav.map((n) => (
             <span key={n}>{n}</span>
@@ -77,10 +83,16 @@ export function PropertyPreview({ variant, className = "", style }: PropertyPrev
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4 px-[10px] py-[14px] text-center text-[8px]" style={{ color: t.amenityColor }}>
-        {site.amenities.map((a) => (
-          <span key={a}>{a}</span>
-        ))}
+      <div className="grid grid-cols-4 px-[10px] py-[12px] text-center text-[8px]" style={{ color: t.amenityColor }}>
+        {site.amenities.map((a, i) => {
+          const AIcon = amenityIcons[site.icons[i]];
+          return (
+            <span key={a} className="flex flex-col items-center gap-[5px]">
+              <AIcon size={13} strokeWidth={1.4} />
+              {a}
+            </span>
+          );
+        })}
       </div>
     </div>
   );

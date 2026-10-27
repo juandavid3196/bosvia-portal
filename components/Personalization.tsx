@@ -38,12 +38,12 @@ export function Personalization() {
             <PropertyPreview
               variant="roble"
               className="w-[400px] shadow-[0_24px_40px_-20px_rgba(9,37,36,0.45)]"
-              style={{ left: 370, top: 34, transform: "rotate(2.5deg)" }}
+              style={{ left: 382, top: 34, transform: "rotate(2.5deg)" }}
             />
             <PropertyPreview
               variant="niebla"
-              className="w-[420px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
-              style={{ left: 10, top: 10, transform: "rotate(-1.5deg)" }}
+              className="w-[395px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
+              style={{ left: 0, top: 10, transform: "rotate(-1.5deg)" }}
             />
           </FitCanvas>
         </Reveal>

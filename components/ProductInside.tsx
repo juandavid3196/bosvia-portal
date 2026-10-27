@@ -1,7 +1,7 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { IconCircle } from "@/components/ui/IconCircle";
 import { Reveal } from "@/components/ui/Reveal";
-import { Dashboard } from "@/components/mockups/Dashboard";
+import { ReservationDetail } from "@/components/mockups/ReservationDetail";
 import { product } from "@/lib/content";
 
 export function ProductInside() {
@@ -25,7 +25,7 @@ export function ProductInside() {
 
         <div className="mt-[clamp(32px,3.6vw,48px)] grid grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(28px,3vw,44px)] gap-y-10 min-[1100px]:grid-cols-[minmax(0,2.3fr)_minmax(0,1fr)]">
           <Reveal className="min-w-0">
-            <Dashboard label="Diseño conceptual" minScale={0.6} />
+            <ReservationDetail minScale={0.6} />
             <p className="mt-[10px] text-[12px] text-paragraph min-[1080px]:hidden">{product.scrollHint}</p>
           </Reveal>
 

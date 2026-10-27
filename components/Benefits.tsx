@@ -9,7 +9,7 @@ export function Benefits() {
         {benefits.map((b, i) => (
           <div
             key={b.title}
-            className={`flex items-center gap-6 py-1 min-[860px]:border-line ${
+            className={`flex items-center gap-5 py-1 min-[860px]:border-line ${
               i === 0
                 ? "pr-[clamp(16px,2.4vw,36px)]"
                 : i === benefits.length - 1
@@ -19,8 +19,8 @@ export function Benefits() {
           >
             <IconCircle name={b.icon} size={76} iconSize={32} tone="sage" />
             <div>
-              <h3 className="font-serif text-[clamp(21px,1.8vw,25px)] font-normal leading-[1.15]">{b.title}</h3>
-              <p className="mt-2 text-[15px] leading-[1.5] text-paragraph">{b.text}</p>
+              <h3 className="whitespace-nowrap font-serif text-[clamp(21px,1.6vw,23px)] font-normal leading-[1.15]">{b.title}</h3>
+              <p className="mt-2 max-w-[24ch] text-[15px] leading-[1.5] text-paragraph">{b.text}</p>
             </div>
           </div>
         ))}

@@ -35,7 +35,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Principal"
-          className="ml-[clamp(24px,6vw,80px)] mr-auto hidden gap-[clamp(20px,3vw,40px)] text-[14px] min-[1080px]:flex"
+          className="ml-[clamp(24px,3vw,44px)] mr-auto hidden gap-[clamp(20px,3vw,40px)] text-[14px] min-[1080px]:flex"
         >
           {navLinks.map((l) => (
             <a

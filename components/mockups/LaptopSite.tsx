@@ -32,7 +32,7 @@ export function LaptopSite() {
             </div>
           </div>
 
-          <div className="relative mx-[26px] -mt-6 flex items-center gap-[14px] rounded-md bg-white p-[10px_12px] text-[9px] shadow-[0_8px_24px_-10px_rgba(9,37,36,0.3)]">
+          <div className="relative ml-[26px] mr-[110px] -mt-6 flex items-center gap-[14px] rounded-md bg-white p-[10px_12px] text-[9px] shadow-[0_8px_24px_-10px_rgba(9,37,36,0.3)]">
             <div className="flex flex-1 items-center justify-between">
               <Field label="Llegada" value={site.arrival} />
               <ArrowRight size={12} stroke="#4A5058" strokeWidth={2} />
@@ -44,10 +44,10 @@ export function LaptopSite() {
               <Field label="Huéspedes" value={site.guests} />
               <ChevronDown size={11} stroke="#4A5058" strokeWidth={2} />
             </div>
-            <span className="rounded bg-terracotta px-[18px] py-[9px] text-[10px] text-white">Elegir alojamiento</span>
+            <span className="whitespace-nowrap rounded bg-terracotta px-[14px] py-[9px] text-[10px] text-white">Elegir alojamiento</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 px-[26px] py-[18px]">
+          <div className="grid grid-cols-3 gap-3 py-[18px] pl-[26px] pr-[110px]">
             {site.cards.map((c) => (
               <div key={c.name} className="overflow-hidden rounded-md border border-[#ECE8DE] bg-white">
                 <img src={c.img} alt="" className="block h-[100px] w-full object-cover" />

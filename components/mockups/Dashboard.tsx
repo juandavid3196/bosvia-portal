@@ -11,6 +11,7 @@ import {
   CreditCard,
   DollarSign,
   Home,
+  Info,
   LogIn,
   LogOut,
   Plus,
@@ -32,7 +33,7 @@ import {
   type ReservaTipo,
 } from "@/lib/content";
 
-const navIcons: Record<(typeof dashboardNav)[number], LucideIcon> = {
+export const navIcons: Record<(typeof dashboardNav)[number], LucideIcon> = {
   Inicio: Home,
   Calendario: CalendarDays,
   Reservas: ClipboardList,
@@ -44,35 +45,36 @@ const navIcons: Record<(typeof dashboardNav)[number], LucideIcon> = {
   Ajustes: Settings,
 };
 
-const tipoStyle: Record<ReservaTipo, { bg: string; fg: string; dot?: string }> = {
+export const tipoStyle: Record<ReservaTipo, { bg: string; fg: string; dot?: string }> = {
   reservada: { bg: "#2E7F74", fg: "#FFFFFF" },
   llegada: { bg: "#D3DECB", fg: "#103C34", dot: "#5E8A5C" },
   salida: { bg: "#EADFD1", fg: "#3F3428", dot: "#8A6A4A" },
   mantenimiento: { bg: "#CF6A45", fg: "#FFFFFF", dot: "#FFFFFF" },
 };
 
-const legend: { label: string; color: string }[] = [
+export const legend: { label: string; color: string }[] = [
   { label: "Reservada", color: "#2E7F74" },
   { label: "Llegada", color: "#B9CBB0" },
   { label: "Salida", color: "#E3D6C4" },
   { label: "Mantenimiento", color: "#CF6A45" },
 ];
 
-const DAYS = dashboardWeek.days.length;
-const FIRST_COL = 2; // la columna 1 es el nombre del alojamiento
+export const DAYS = dashboardWeek.days.length;
+export const FIRST_COL = 2; // la columna 1 es el nombre del alojamiento
 
 /**
  * Calcula `grid-column` a partir de las fechas. Las estadías ocupan las noches
  * [inicio, fin); el mantenimiento incluye el día final. Se recorta a la semana visible.
  */
-function gridColumn({ inicio, fin, tipo }: Bloque): string {
+export function gridColumn({ inicio, fin, tipo, cols }: Bloque): string {
+  if (cols) return `${cols[0]} / ${cols[1]}`;
   const lastDay = tipo === "mantenimiento" ? fin + 1 : fin;
   const start = Math.max(FIRST_COL, inicio - dashboardWeek.firstDay + FIRST_COL);
   const end = Math.min(FIRST_COL + DAYS, lastDay - dashboardWeek.firstDay + FIRST_COL);
   return `${start} / ${Math.max(end, start + 1)}`;
 }
 
-function rangeLabel({ inicio, fin }: Bloque) {
+export function rangeLabel({ inicio, fin }: Bloque) {
   return `${inicio} – ${fin} oct`;
 }
 
@@ -147,7 +149,7 @@ export function Dashboard({ label = "Diseño conceptual", minScale = 0 }: Dashbo
         </div>
 
         <div className="grid grid-cols-4 gap-[10px]">
-          <Kpi icon={Bed} bg="#9DB59C" fg="#FFFFFF" title="Ocupación">
+          <Kpi icon={Bed} bg="#9DB59C" fg="#FFFFFF" title="Ocupación" info>
             <div className="mb-[6px] mt-[2px] font-serif text-[21px]">{dashboardKpis.occupancy.value}</div>
             <div className="flex items-center gap-[6px]">
               <div className="h-[5px] flex-1 rounded-[3px] bg-[#E7E5DC]">
@@ -156,13 +158,13 @@ export function Dashboard({ label = "Diseño conceptual", minScale = 0 }: Dashbo
               <span className="text-[9.5px] text-[#6B7178]">{dashboardKpis.occupancy.pct}%</span>
             </div>
           </Kpi>
-          <Kpi icon={LogIn} bg="#D9DFCD" fg="#103C34" title="Llegadas">
+          <Kpi icon={LogIn} bg="#D9DFCD" fg="#103C34" title="Llegadas" info>
             <KpiValue value={dashboardKpis.arrivals.value} sub={dashboardKpis.arrivals.sub} />
           </Kpi>
           <Kpi icon={LogOut} bg="#D7704C" fg="#FFFFFF" title="Salidas">
             <KpiValue value={dashboardKpis.departures.value} sub={dashboardKpis.departures.sub} />
           </Kpi>
-          <Kpi icon={DollarSign} bg="#D9DFCD" fg="#103C34" title="Por cobrar">
+          <Kpi icon={DollarSign} bg="#D9DFCD" fg="#103C34" title="Por cobrar" info>
             <KpiValue value={dashboardKpis.pending.value} sub={dashboardKpis.pending.sub} />
           </Kpi>
         </div>
@@ -249,21 +251,23 @@ export function Dashboard({ label = "Diseño conceptual", minScale = 0 }: Dashbo
   );
 }
 
-function NavBtn({ children }: { children: React.ReactNode }) {
+export function NavBtn({ children }: { children: React.ReactNode }) {
   return <span className="grid h-[22px] w-[22px] place-items-center rounded-[5px] border border-[#E4DFD3]">{children}</span>;
 }
 
-function Kpi({
+export function Kpi({
   icon: KpiIcon,
   bg,
   fg,
   title,
+  info,
   children,
 }: {
   icon: LucideIcon;
   bg: string;
   fg: string;
   title: string;
+  info?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -272,14 +276,17 @@ function Kpi({
         <KpiIcon size={16} strokeWidth={1.8} />
       </div>
       <div className="flex-1">
-        <div className="text-[10.5px] text-[#6B7178]">{title}</div>
+        <div className="flex items-center gap-1 text-[10.5px] text-[#6B7178]">
+          {title}
+          {info && <Info size={9} strokeWidth={1.6} className="text-[#A5AAB0]" />}
+        </div>
         {children}
       </div>
     </div>
   );
 }
 
-function KpiValue({ value, sub }: { value: string; sub: string }) {
+export function KpiValue({ value, sub }: { value: string; sub: string }) {
   return (
     <>
       <div className="mb-[3px] mt-[2px] font-serif text-[21px]">{value}</div>

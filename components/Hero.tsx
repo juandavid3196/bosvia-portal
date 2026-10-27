@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { NoteLine } from "@/components/ui/NoteLine";
 import { Reveal } from "@/components/ui/Reveal";
-import { Dashboard } from "@/components/mockups/Dashboard";
+import { OperationalPanel } from "@/components/mockups/OperationalPanel";
 import { hero } from "@/lib/content";
 
 function Title({ id, className, style }: { id: string; className: string; style?: React.CSSProperties }) {
@@ -23,26 +24,19 @@ export function Hero() {
       {/* Escritorio */}
       <section
         aria-labelledby="hero-title"
-        className="relative hidden h-[clamp(660px,50vw,820px)] overflow-hidden bg-ivory min-[1080px]:block"
+        className="relative hidden h-[clamp(660px,56vw,900px)] overflow-hidden bg-ivory min-[1080px]:block"
       >
-        <img
-          src="/assets/hero-v5.png"
+        <Image
+          src="/assets/hero-bg.png"
           alt={hero.imageAlt}
-          className="absolute inset-y-0 right-0 h-full w-[62%] object-cover"
-          style={{ objectPosition: "center top" }}
-        />
-        <svg aria-hidden="true" viewBox="0 0 1000 700" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
-          <path d="M0 0 H570 C480 24 432 112 424 236 L418 452 C410 588 300 640 168 700 H0 Z" fill="#F8F5EE" />
-        </svg>
-        <img
-          src="/assets/leaves-t.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 w-[clamp(150px,16vw,230px)] opacity-90"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="relative mx-auto h-full max-w-[1320px] px-[clamp(20px,4vw,52px)]">
           <Reveal className="absolute left-[clamp(20px,4vw,52px)] top-[24%] w-[40%] max-w-[520px]">
-            <Title id="hero-title" className="whitespace-nowrap text-[min(5vw,68px)]" />
+            <Title id="hero-title" className="whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
             <p className="mt-[clamp(20px,2.4vw,32px)] max-w-[34ch] text-[clamp(16px,1.4vw,19px)] leading-[1.5] text-paragraph [text-wrap:pretty]">
               {hero.description}
             </p>
@@ -52,8 +46,8 @@ export function Hero() {
             </div>
             <NoteLine className="mt-[clamp(28px,3vw,40px)] text-[13px]">{hero.note}</NoteLine>
           </Reveal>
-          <div className="absolute left-[45%] right-0 top-[34%]">
-            <Dashboard label="Vista conceptual" />
+          <div className="absolute left-[42%] right-0 top-[28%]">
+            <OperationalPanel />
           </div>
         </div>
       </section>
@@ -77,7 +71,7 @@ export function Hero() {
             style={{ objectPosition: "center top" }}
           />
           <div className="relative -mt-[170px] px-[14px] pb-7">
-            <Dashboard label="Vista conceptual" minScale={0.42} />
+            <OperationalPanel minScale={0.42} />
           </div>
         </div>
       </section>

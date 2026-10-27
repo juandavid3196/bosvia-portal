@@ -61,7 +61,7 @@ export const product = {
   eyebrow: "EL PRODUCTO POR DENTRO",
   title: ["Una vista clara de lo que pasa", "en tu alojamiento."],
   description: "Módulos previstos para conectar la experiencia del huésped con el trabajo del equipo.",
-  scrollHint: "Desliza para ver el calendario completo.",
+  scrollHint: "Desliza para ver el detalle completo.",
   modules: [
     { icon: "calendar", title: "Calendario y reservas", text: "Disponibilidad y estadías organizadas." },
     { icon: "users", title: "Huéspedes y estadías", text: "Información para acompañar cada visita." },
@@ -87,11 +87,13 @@ export const personalization = {
       name: "Domo Niebla",
       lines: ["Naturaleza, comodidad", "y momentos inolvidables."],
       amenities: ["Hasta 2 personas", "Cama queen", "Vista a la montaña", "Wi-Fi"],
+      icons: ["leaf", "bed", "mountain", "wifi"],
     },
     roble: {
       name: "Cabaña Roble",
       lines: ["Un refugio entre árboles", "para desconectar."],
       amenities: ["Hasta 4 personas", "Cocina equipada", "Terraza privada", "Wi-Fi"],
+      icons: ["leaf", "utensils", "armchair", "wifi"],
     },
     nav: ["Inicio", "Alojamiento", "Experiencias", "Contacto"],
     cta: "Ver disponibilidad →",
@@ -131,6 +133,8 @@ export interface Bloque {
   inicio: number;
   fin: number;
   tipo: ReservaTipo;
+  /** Líneas de grid (inicio / fin) fijadas por el diseño; si se omiten se calculan de las fechas. */
+  cols?: [number, number];
 }
 
 export const dashboardWeek = {
@@ -157,11 +161,11 @@ export const dashboardProperties = [
 export const dashboardBlocks: Bloque[] = [
   { alojamiento: "Domo Niebla", huesped: "Ana Torres", inicio: 3, fin: 5, tipo: "llegada" },
   { alojamiento: "Domo Niebla", huesped: "Carlos Mejía", inicio: 5, fin: 8, tipo: "reservada" },
-  { alojamiento: "Cabaña Roble", huesped: "María López", inicio: 2, fin: 4, tipo: "reservada" },
-  { alojamiento: "Cabaña Roble", huesped: "Diego Ramírez", inicio: 6, fin: 9, tipo: "salida" },
-  { alojamiento: "Domo Luna", huesped: "Sofía Vargas", inicio: 6, fin: 8, tipo: "reservada" },
-  { alojamiento: "Finca Río", huesped: "Mantenimiento", inicio: 5, fin: 6, tipo: "mantenimiento" },
-  { alojamiento: "Finca Río", huesped: "Juan Pablo Silva", inicio: 8, fin: 10, tipo: "reservada" },
+  { alojamiento: "Cabaña Roble", huesped: "María López", inicio: 2, fin: 4, tipo: "reservada", cols: [2, 4] },
+  { alojamiento: "Cabaña Roble", huesped: "Diego Ramírez", inicio: 6, fin: 9, tipo: "salida", cols: [6, 9] },
+  { alojamiento: "Domo Luna", huesped: "Sofía Vargas", inicio: 5, fin: 7, tipo: "reservada", cols: [5, 7] },
+  { alojamiento: "Finca Río", huesped: "Mantenimiento", inicio: 4, fin: 5, tipo: "mantenimiento", cols: [4, 6] },
+  { alojamiento: "Finca Río", huesped: "Juan Pablo Silva", inicio: 7, fin: 9, tipo: "reservada", cols: [7, 9] },
 ];
 
 export const dashboardNav = [
