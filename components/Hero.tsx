@@ -3,21 +3,22 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { NoteLine } from "@/components/ui/NoteLine";
 import { OperationalPanel } from "@/components/mockups/OperationalPanel";
-import { hero } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-function Title({ id, className, style }: { id: string; className: string; style?: React.CSSProperties }) {
+function Title({ copy, id, className }: { copy: Dictionary["hero"]; id: string; className: string }) {
   return (
-    <h1 id={id} className={`font-serif font-normal leading-[0.98] tracking-[-0.025em] text-ink ${className}`} style={style}>
-      {hero.titleLines[0]}
+    <h1 id={id} className={`font-serif font-normal leading-[0.98] tracking-[-0.025em] text-ink ${className}`}>
+      {copy.titleLines[0]}
       <br />
-      {hero.titleLines[1]}
+      {copy.titleLines[1]}
       <br />
-      <span className="text-moss">{hero.titleAccent}</span>
+      <span className="text-moss">{copy.titleAccent}</span>
     </h1>
   );
 }
 
-export function Hero() {
+export function Hero({ t }: { t: Dictionary }) {
+  const hero = t.hero;
   return (
     <>
       {/* Escritorio */}
@@ -37,7 +38,7 @@ export function Hero() {
         </div>
         <div className="relative mx-auto h-full max-w-[1452px] px-[clamp(20px,4vw,52px)]">
           <div className="absolute left-[clamp(20px,4vw,52px)] top-[24%] w-[40%] max-w-[520px]">
-            <Title id="hero-title" className="motion-safe:animate-fade-up [animation-delay:150ms] whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
+            <Title copy={hero} id="hero-title" className="motion-safe:animate-fade-up [animation-delay:150ms] whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
             <p className="motion-safe:animate-fade-up [animation-delay:350ms] mt-[clamp(20px,2.4vw,32px)] max-w-[34ch] text-[clamp(16px,1.4vw,19px)] leading-[1.5] text-paragraph [text-wrap:pretty]">
               {hero.description}
             </p>
@@ -48,7 +49,7 @@ export function Hero() {
             <NoteLine className="mt-[clamp(28px,3vw,40px)] text-[13px] motion-safe:animate-fade-up [animation-delay:650ms]">{hero.note}</NoteLine>
           </div>
           <div className="absolute left-[42%] right-0 top-[28%] motion-safe:animate-panel-in [animation-delay:450ms]">
-            <OperationalPanel />
+            <OperationalPanel t={t} />
           </div>
         </div>
       </section>
@@ -56,7 +57,7 @@ export function Hero() {
       {/* Móvil */}
       <section aria-labelledby="hero-title-m" className="relative overflow-hidden bg-ivory pt-[110px] min-[1080px]:hidden">
         <div className="px-[22px]">
-          <Title id="hero-title-m" className="motion-safe:animate-fade-up text-[clamp(44px,12.5vw,64px)]" />
+          <Title copy={hero} id="hero-title-m" className="motion-safe:animate-fade-up text-[clamp(44px,12.5vw,64px)]" />
           <p className="mt-5 text-[16px] leading-[1.55] text-paragraph [text-wrap:pretty] motion-safe:animate-fade-up [animation-delay:200ms]">{hero.description}</p>
           <div className="mt-[26px] flex flex-col items-start gap-[18px]">
             <Button href="#producto" arrow>{hero.primaryCta}</Button>
@@ -72,7 +73,7 @@ export function Hero() {
             style={{ objectPosition: "center top" }}
           />
           <div className="relative -mt-[170px] px-[14px] pb-7 motion-safe:animate-panel-in [animation-delay:400ms]">
-            <OperationalPanel minScale={0.42} />
+            <OperationalPanel t={t} minScale={0.42} />
           </div>
         </div>
       </section>

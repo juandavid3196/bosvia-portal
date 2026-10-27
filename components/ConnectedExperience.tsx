@@ -5,9 +5,10 @@ import { NoteLine } from "@/components/ui/NoteLine";
 import { Reveal } from "@/components/ui/Reveal";
 import { LaptopSite } from "@/components/mockups/LaptopSite";
 import { PhoneBooking } from "@/components/mockups/PhoneBooking";
-import { experience } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-export function ConnectedExperience() {
+export function ConnectedExperience({ t }: { t: Dictionary }) {
+  const experience = t.experience;
   return (
     <section id="experiencia" aria-labelledby="exp-title" className="relative overflow-hidden bg-ivory">
       <img
@@ -32,8 +33,8 @@ export function ConnectedExperience() {
         <div className="mt-[clamp(36px,4vw,56px)] grid grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(32px,4vw,64px)] gap-y-12 min-[1100px]:grid-cols-[minmax(0,1.75fr)_minmax(0,1fr)]">
           <Reveal className="min-w-0">
             <FitCanvas baseWidth={860} baseHeight={560} max={1.1} label={experience.mockupLabel}>
-              <LaptopSite />
-              <PhoneBooking />
+              <LaptopSite site={t.site} />
+              <PhoneBooking site={t.site} />
             </FitCanvas>
           </Reveal>
 

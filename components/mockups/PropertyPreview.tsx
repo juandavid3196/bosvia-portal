@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { personalization } from "@/lib/content";
+import { personalizationSites } from "@/lib/content";
 
 interface PropertyPreviewProps {
   variant: "niebla" | "roble";
@@ -10,7 +10,7 @@ interface PropertyPreviewProps {
 
 /** Captura del sitio de un alojamiento; cada uno con su propia identidad visual. */
 export function PropertyPreview({ variant, className = "", style }: PropertyPreviewProps) {
-  const site = personalization.sites[variant];
+  const site = personalizationSites[variant];
 
   return (
     <div

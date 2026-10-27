@@ -1,0 +1,310 @@
+import type { Dictionary } from "@/lib/dictionaries/es";
+
+export const en: Dictionary = {
+  lang: "en",
+  meta: {
+    title: "Bosvia · Bookings and operations in nature",
+    description:
+      "Bosvia is a platform under construction that connects bookings, guests and operations for glamping sites, eco-hotels and small lodgings.",
+  },
+  ui: {
+    logoAlt: "bosvia",
+    emblemAlt: "Creator's emblem",
+  },
+
+  header: {
+    homeLabel: "Bosvia, home",
+    navLabel: "Main",
+    links: ["The project", "Experience", "Development"],
+    status: "Product in development",
+    statusNote: "Independent venture",
+    portfolio: "Back to portfolio",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    languageLabel: "Language",
+    languages: { es: "Español", en: "English" },
+  },
+
+  hero: {
+    titleLines: ["Nature", "inspires."],
+    titleAccent: "Bosvia organizes.",
+    description:
+      "A platform under construction that connects bookings, guests and operations for lodgings set in nature.",
+    primaryCta: "Explore the project",
+    secondaryCta: "See how it will work",
+    note: "SaaS for glamping sites, eco-hotels and small lodgings.",
+    imageAlt: "Glamping dome among Colombian mountains at sunrise",
+  },
+
+  benefits: {
+    label: "Benefits",
+    items: [
+      { icon: "calendar", title: "Connected bookings", text: "Availability and stays in one place." },
+      { icon: "users", title: "Coordinated operations", text: "Arrivals, departures and team tasks." },
+      { icon: "leaf", title: "Its own identity", text: "An experience aligned with each lodging." },
+    ],
+  },
+
+  experience: {
+    eyebrow: "A CONNECTED EXPERIENCE",
+    title: ["From the first click to a", "well-organized stay."],
+    mockupLabel: "Laptop and phone showing the Bosque Alto booking site",
+    steps: [
+      { n: "01", title: "Discover and book", text: "Guests browse lodgings and dates." },
+      { n: "02", title: "Prepare the arrival", text: "The team organizes the booking and the welcome." },
+      { n: "03", title: "Look after the stay", text: "Operations and follow-up from the same place." },
+    ],
+    note: "Planned product flow.",
+  },
+
+  site: {
+    name: "Bosque Alto",
+    tagline: "Nature to live in",
+    nav: ["Home", "Lodgings", "Experiences", "Gallery", "Contact"],
+    book: "Book",
+    chooseLodging: "Choose a lodging",
+    arrival: "Check-in",
+    departure: "Check-out",
+    guests: "Guests",
+    arrivalDate: "Oct 3, 2026",
+    departureDate: "Oct 5, 2026",
+    guestsValue: "2 guests",
+    cards: [
+      { name: "Domo Niebla", price: "From $320,000 / night" },
+      { name: "Cabaña Roble", price: "From $480,000 / night" },
+      { name: "Domo Luna", price: "From $360,000 / night" },
+    ],
+    phone: { name: "Cabaña Roble", features: ["4 guests", "2 beds · 1 bathroom", "Forest view"] },
+  },
+
+  product: {
+    eyebrow: "THE PRODUCT FROM THE INSIDE",
+    title: ["A clear view of what is", "happening at your lodging."],
+    description: "Planned modules that connect the guest experience with the team's work.",
+    scrollHint: "Swipe to see the full detail.",
+    modules: [
+      { icon: "calendar", title: "Calendar and bookings", text: "Availability and stays, organized." },
+      { icon: "users", title: "Guests and stays", text: "Information to look after every visit." },
+      { icon: "square-check", title: "Daily operations", text: "Arrivals, departures and team tasks." },
+      { icon: "bar-chart", title: "Payments and reports", text: "Follow-up on collections and activity." },
+    ],
+  },
+
+  personalization: {
+    title: ["Your lodging has", "personality.", "So should its", "digital experience."],
+    description: "Visual personalization is part of Bosvia's vision.",
+    paletteLabel: "Sample palette",
+    swatchNames: ["Forest green", "Sage", "Sand", "Terracotta", "Warm brown"],
+    mockupLabel:
+      "Two lodging websites with distinct identities: Domo Niebla in forest green and Cabaña Roble in terracotta",
+  },
+
+  fromIdea: {
+    eyebrow: "FROM IDEA TO PRODUCT",
+    title: ["A project that connects", "design, technology and nature."],
+    description:
+      "Bosvia comes from my interest in building useful software and carefully crafted experiences for businesses tied to nature.",
+    mountainsAlt: "Mountains at sunset",
+    cards: [
+      { icon: "leaf", title: "Product vision", text: "Define the problem, the users and the flows." },
+      { icon: "palette", title: "Experience design", text: "Build a coherent identity and interface." },
+      { icon: "settings", title: "Progressive development", text: "Turn the proposal into a working product." },
+    ],
+    note: "Current status: product definition and design.",
+  },
+
+  closing: {
+    title: ["Building a simpler way", "to manage hospitality."],
+    text: "Get to know my work and the process behind Bosvia.",
+    portfolioCta: "View my portfolio",
+    contactCta: "Contact the creator",
+    footerTagline: "Bookings and operations in nature.",
+    footerStatus: "Project in development · 2026",
+  },
+
+  panel: {
+    ariaLabel:
+      "Conceptual view of the Bosque Alto operations dashboard: daily indicators, booking calendar, priorities, recent bookings and direct sales",
+    nav: {
+      home: "Home",
+      calendar: "Calendar",
+      bookings: "Bookings",
+      lodgings: "Lodgings",
+      guests: "Guests",
+      operations: "Operations",
+      payments: "Payments",
+      reports: "Reports",
+      settings: "Settings",
+    },
+    property: "Property",
+    propertyName: "Bosque Alto",
+    today: "Saturday, October 3, 2026",
+    user: "Laura",
+    newBooking: "New booking",
+    greeting: "Good morning, Laura",
+    subtitle: "Here is how Bosque Alto is running today.",
+    kpis: {
+      occupancy: { title: "Occupancy", value: "7 of 10" },
+      arrivals: { title: "Arrivals", value: "3", sub: "today · Sat Oct 3" },
+      departures: { title: "Departures", value: "2", sub: "today · Sat Oct 3" },
+      pending: { title: "To collect", value: "$840,000", sub: "3 pending bookings" },
+    },
+    calendar: {
+      title: "Availability and bookings",
+      legend: { reserved: "Booked", arrival: "Arrival", departure: "Departure", maintenance: "Maintenance" },
+      weekLabel: "Oct 3 – 9, 2026",
+      lodging: "Lodging",
+      days: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+      month: "Oct",
+      range: "Oct {from} – {to}",
+      maintenance: "Maintenance",
+      people: "{n} guests",
+    },
+    priorities: {
+      title: "Today's priorities",
+      items: [
+        { kind: "checkin", title: "Check-in", place: "Domo Niebla", time: "3:00 PM", detail: ["Ana Torres", "2 guests"] },
+        { kind: "checkin", title: "Check-in", place: "Finca Río", time: "4:00 PM", detail: ["Valentina Ruiz", "4 guests"] },
+        { kind: "checkout", title: "Check-out", place: "Cabaña Roble", time: "11:00 AM", detail: ["María López", "4 guests"] },
+        { kind: "limpieza", title: "Cleaning", place: "Domo Luna", time: "11:30 AM", detail: ["After check-out"] },
+        { kind: "pago", title: "Pending payment", place: "", time: "12:00 PM", detail: ["Diego Ramírez · Cabaña Roble", "$320,000"] },
+      ],
+    },
+    bookings: {
+      title: "Recent bookings",
+      viewAll: "View all",
+      heads: ["Date", "Guest", "Lodging", "Stay", "Source", "Status", "Total", ""],
+      statuses: {
+        confirmed: "Confirmed",
+        toCollect: "To collect",
+        inProgress: "In progress",
+        completed: "Completed",
+      },
+      rows: [
+        { date: "Oct 2, 2026", guest: "Camila Soto", lodging: "Domo Luna", dates: "Oct 5 – 7", source: "Direct website", status: "confirmed", total: "$480,000" },
+        { date: "Oct 1, 2026", guest: "Diego Ramírez", lodging: "Cabaña Roble", dates: "Oct 6 – 9", source: "WhatsApp", status: "toCollect", total: "$320,000" },
+        { date: "Sep 30, 2026", guest: "Juan Pablo Silva", lodging: "Finca Río", dates: "Oct 7 – 9", source: "Airbnb", status: "confirmed", total: "$760,000" },
+        { date: "Sep 28, 2026", guest: "Ana Torres", lodging: "Domo Niebla", dates: "Oct 3 – 5", source: "Direct website", status: "inProgress", total: "$640,000" },
+        { date: "Sep 27, 2026", guest: "María López", lodging: "Cabaña Roble", dates: "Oct 2 – 4", source: "WhatsApp", status: "completed", total: "$480,000" },
+      ],
+    },
+    sales: {
+      title: "Direct sales",
+      period: "Last 6 weeks",
+      ticks: ["$4M", "$3M", "$2M", "$1M", "$0"],
+      weeks: [
+        { label: "Aug 24", range: "– Aug 30" },
+        { label: "Aug 31", range: "– Sep 6" },
+        { label: "Sep 7", range: "– Sep 13" },
+        { label: "Sep 14", range: "– Sep 20" },
+        { label: "Sep 21", range: "– Sep 27" },
+        { label: "Sep 28", range: "– Oct 3" },
+      ],
+      legend: { direct: "Direct website", whatsapp: "WhatsApp" },
+    },
+  },
+
+  reservation: {
+    ariaLabel:
+      "Conceptual view of a booking's details in Bosvia: guest, lodging, services and charges, payment summary and recent activity",
+    conceptLabel: "Conceptual design",
+    property: "Property",
+    propertyName: "Bosque Alto",
+    today: "Wednesday, October 14, 2026",
+    user: "Laura",
+    newBooking: "New booking",
+    breadcrumb: "Bookings",
+    code: "RSV-0248",
+    title: "Booking details",
+    status: "Confirmed",
+    created: "Created Oct 12, 2026",
+    source: "Direct website",
+    edit: "Edit booking",
+    registerPayment: "Record payment",
+    tabs: ["Summary", "Payments", "Messages", "History"],
+    stay: {
+      arrival: "Check-in",
+      arrivalDate: "Oct 16, 2026",
+      arrivalTime: "3:00 PM",
+      departure: "Check-out",
+      departureDate: "Oct 18, 2026",
+      departureTime: "11:00 AM",
+      label: "Stay",
+      summary: "2 nights · 2 adults",
+    },
+    guest: {
+      title: "Primary guest",
+      initials: "AT",
+      name: "Ana Torres",
+      tag: "Returning guest",
+      email: "ana.torres@example.com",
+      phone: "+57 300 555 0182",
+      history: "2 previous bookings",
+      contact: "Contact",
+    },
+    lodging: {
+      title: "Lodging",
+      name: "Domo Niebla",
+      capacity: "2 guests · Queen bed",
+      included: "Breakfast included",
+      view: "View lodging",
+    },
+    charges: {
+      title: "Services and charges",
+      heads: { concept: "Item", qty: "Quantity", unit: "Unit price", subtotal: "Subtotal" },
+      rows: [
+        { icon: "bed", name: "Domo Niebla", detail: "Oct 16 – 18", kind: "Lodging", qty: "2 nights", unit: "$320,000", subtotal: "$640,000" },
+        { icon: "flame", name: "Private bonfire", detail: "", kind: "Additional experience", qty: "1", unit: "$90,000", subtotal: "$90,000" },
+      ],
+      add: "Add service",
+      taxes: "Taxes included",
+      totalLabel: "Booking total",
+      total: "$730,000",
+      currency: "COP",
+    },
+    notes: {
+      title: "Stay notes",
+      tag: "Internal note",
+      text: "They are celebrating their anniversary. Prepare a welcome and confirm the bonfire time.",
+    },
+    checklist: {
+      title: "Arrival preparation",
+      items: [
+        { done: true, title: "Confirmation sent", who: "", when: "Oct 12 · 10:45 AM" },
+        { done: false, title: "Prepare the lodging", who: "Assigned to: Cleaning team", when: "Oct 15" },
+        { done: false, title: "Arrange the bonfire", who: "Assigned to: Laura", when: "Oct 15" },
+      ],
+    },
+    payment: {
+      title: "Payment summary",
+      badge: "Balance due",
+      toCollect: "To collect",
+      pending: "$365,000",
+      pct: 50,
+      total: "Total",
+      totalValue: "$730,000",
+      paid: "Paid",
+      paidValue: "$365,000",
+      pendingLabel: "Pending",
+      advance: { title: "Deposit received", date: "Oct 12", method: "Bank transfer", amount: "$365,000" },
+      link: "Send payment link",
+    },
+    activity: {
+      title: "Recent activity",
+      viewAll: "View full history",
+      items: [
+        { kind: "done", title: "Booking confirmed", extra: "", meta: "Oct 12, 2026 · 10:42 AM", side: "Direct website" },
+        { kind: "done", title: "Deposit recorded", extra: "$365,000 · Laura", meta: "Oct 12, 2026 · 10:43 AM", side: "Bank transfer" },
+        { kind: "mail", title: "Confirmation email sent", extra: "", meta: "Oct 12, 2026 · 10:45 AM", side: "Direct website" },
+        { kind: "clock", title: "Reminder scheduled", extra: "", meta: "Oct 15, 2026 · 9:00 AM", side: "System" },
+      ],
+    },
+    communication: {
+      title: "Guest communication",
+      email: "Send email",
+      whatsapp: "Send WhatsApp",
+      last: "Last message:",
+      lastValue: "2 hours ago",
+    },
+  },
+};

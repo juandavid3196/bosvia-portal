@@ -11,6 +11,8 @@ import {
   Flame,
   Link2,
   Lock,
+  LogIn,
+  LogOut,
   Mail,
   MessageCircle,
   MoreHorizontal,
@@ -20,18 +22,18 @@ import {
   TreePine,
   Users,
   UtensilsCrossed,
-  LogIn,
-  LogOut,
   type LucideIcon,
 } from "lucide-react";
 import { FitCanvas } from "@/components/ui/FitCanvas";
 import { PanelSidebar } from "@/components/mockups/PanelSidebar";
-import { reservation as r } from "@/lib/reservation";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
 const card = "rounded-lg border border-[#ECE8DE] bg-white";
 const cardTitle = "font-serif text-[14px] leading-none";
 
-const activityIcon: Record<(typeof r.activity)[number]["kind"], { icon: LucideIcon; bg: string; fg: string }> = {
+type Reservation = Dictionary["reservation"];
+
+const activityIcon: Record<Reservation["activity"]["items"][number]["kind"], { icon: LucideIcon; bg: string; fg: string }> = {
   done: { icon: Check, bg: "#2E7F74", fg: "#FFFFFF" },
   mail: { icon: Mail, bg: "#2E7F74", fg: "#FFFFFF" },
   clock: { icon: Clock, bg: "#EDEBE4", fg: "#8A8F96" },
@@ -42,20 +44,22 @@ function More() {
 }
 
 interface ReservationDetailProps {
-  label?: string;
+  t: Dictionary;
   minScale?: number;
 }
 
 /** Detalle de reserva (diseño conceptual). Lienzo de 1000px. */
-export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }: ReservationDetailProps) {
+export function ReservationDetail({ t, minScale = 0 }: ReservationDetailProps) {
+  const r = t.reservation;
+
   return (
     <FitCanvas
       baseWidth={1000}
       min={minScale}
-      label="Vista conceptual del detalle de una reserva en Bosvia: huésped, alojamiento, servicios y cargos, resumen de pago y actividad reciente"
+      label={r.ariaLabel}
       className="flex overflow-hidden rounded-xl border border-[#E4DFD3] bg-surface font-sans text-ink shadow-[0_30px_60px_-20px_rgba(9,37,36,0.35),0_8px_20px_-8px_rgba(9,37,36,0.18)]"
     >
-      <PanelSidebar active="Reservas" />
+      <PanelSidebar labels={t.panel.nav} logoAlt={t.ui.logoAlt} active="bookings" />
 
       <div className="flex min-w-0 flex-1 flex-col pb-2">
         {/* Topbar */}
@@ -68,9 +72,9 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
             </div>
             <div className="flex flex-col leading-[1.15]">
               <span className="flex items-center gap-1 text-[12px] font-medium">
-                Bosque Alto <ChevronDown size={11} strokeWidth={2} />
+                {r.propertyName} <ChevronDown size={11} strokeWidth={2} />
               </span>
-              <span className="text-[9px] text-[#8A8F96]">Propiedad</span>
+              <span className="text-[9px] text-[#8A8F96]">{r.property}</span>
             </div>
           </div>
           <div className="flex items-center gap-[12px] text-[10px] text-[#4A5058]">
@@ -85,11 +89,11 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
             </span>
             <span className="flex items-center gap-[6px]">
               <span className="grid h-6 w-6 place-items-center rounded-full bg-sage text-[9px] font-semibold text-forest">LJ</span>
-              Laura <ChevronDown size={11} strokeWidth={2} />
+              {r.user} <ChevronDown size={11} strokeWidth={2} />
             </span>
             <span className="flex items-center gap-[6px] rounded-md bg-forest px-3 py-2 text-[10.5px] font-medium text-white">
               <Plus size={12} strokeWidth={2.2} />
-              Nueva reserva
+              {r.newBooking}
             </span>
           </div>
         </div>
@@ -98,10 +102,10 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
         <div className="flex items-start justify-between px-[14px] pt-[8px]">
           <div>
             <div className="text-[8.5px] text-[#6B7178]">
-              Reservas <span className="mx-1">/</span> <span className="text-ink">{r.code}</span>
+              {r.breadcrumb} <span className="mx-1">/</span> <span className="text-ink">{r.code}</span>
             </div>
             <div className="mt-[3px] flex items-center gap-[10px]">
-              <h3 className="font-serif text-[30px] font-normal leading-none">Detalle de reserva</h3>
+              <h3 className="font-serif text-[30px] font-normal leading-none">{r.title}</h3>
               <span className="rounded-full bg-sage-soft px-[10px] py-[4px] text-[9px] text-forest">{r.status}</span>
             </div>
             <div className="mt-[5px] text-[10px] text-[#4A5058]">
@@ -109,11 +113,11 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
             </div>
           </div>
           <div className="flex items-center gap-[7px] pt-[14px] text-[10px] font-medium">
-            <span className="flex items-center gap-[6px] rounded-md border border-[#C9C5BB] bg-white px-3 py-[7px]">
-              <Pencil size={11} strokeWidth={1.8} /> Editar reserva
+            <span className="flex items-center gap-[6px] whitespace-nowrap rounded-md border border-[#C9C5BB] bg-white px-3 py-[7px]">
+              <Pencil size={11} strokeWidth={1.8} /> {r.edit}
             </span>
-            <span className="flex items-center gap-[6px] rounded-md bg-forest px-3 py-[7px] text-white">
-              <Plus size={11} strokeWidth={2.2} /> Registrar pago
+            <span className="flex items-center gap-[6px] whitespace-nowrap rounded-md bg-forest px-3 py-[7px] text-white">
+              <Plus size={11} strokeWidth={2.2} /> {r.registerPayment}
             </span>
             <span className="grid h-[27px] w-[27px] place-items-center rounded-md border border-[#C9C5BB] bg-white">
               <More />
@@ -125,12 +129,12 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
           {/* Columna principal */}
           <div className="flex min-w-0 flex-col gap-[8px]">
             <div className="flex gap-[22px] border-b border-[#ECE8DE] text-[10px] text-[#4A5058]">
-              {r.tabs.map((t, i) => (
+              {r.tabs.map((tab, i) => (
                 <span
-                  key={t}
+                  key={tab}
                   className={`pb-[6px] ${i === 0 ? "-mb-px border-b-2 border-[#2E7F74] font-medium text-ink" : ""}`}
                 >
-                  {t}
+                  {tab}
                 </span>
               ))}
             </div>
@@ -141,9 +145,9 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                   <LogIn size={15} strokeWidth={1.8} />
                 </span>
                 <div className="text-[9px] leading-[1.35] text-[#6B7178]">
-                  Llegada
-                  <div className="font-serif text-[15px] leading-tight text-ink">{r.stay.arrival.date}</div>
-                  {r.stay.arrival.time}
+                  {r.stay.arrival}
+                  <div className="font-serif text-[15px] leading-tight text-ink">{r.stay.arrivalDate}</div>
+                  {r.stay.arrivalTime}
                 </div>
               </div>
               <div className={`${card} flex items-center gap-[10px] p-[9px]`}>
@@ -151,9 +155,9 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                   <LogOut size={15} strokeWidth={1.8} />
                 </span>
                 <div className="text-[9px] leading-[1.35] text-[#6B7178]">
-                  Salida
-                  <div className="font-serif text-[15px] leading-tight text-ink">{r.stay.departure.date}</div>
-                  {r.stay.departure.time}
+                  {r.stay.departure}
+                  <div className="font-serif text-[15px] leading-tight text-ink">{r.stay.departureDate}</div>
+                  {r.stay.departureTime}
                 </div>
               </div>
               <div className={`${card} flex items-center gap-[10px] p-[9px]`}>
@@ -161,7 +165,7 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                   <Bed size={15} strokeWidth={1.8} />
                 </span>
                 <div className="text-[9px] text-[#6B7178]">
-                  Estadía
+                  {r.stay.label}
                   <div className="mt-[2px] font-serif text-[14px] leading-tight text-ink">{r.stay.summary}</div>
                 </div>
               </div>
@@ -170,7 +174,7 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
             <div className="grid grid-cols-2 gap-[8px]">
               <div className={`${card} p-[10px]`}>
                 <div className="flex items-center justify-between">
-                  <div className={cardTitle}>Huésped principal</div>
+                  <div className={cardTitle}>{r.guest.title}</div>
                   <More />
                 </div>
                 <div className="mt-[8px] flex items-center gap-[8px]">
@@ -192,24 +196,24 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                     <li className="flex items-center gap-[6px]"><Users size={10} strokeWidth={1.6} />{r.guest.history}</li>
                   </ul>
                   <span className="flex items-center gap-[5px] rounded-md border border-[#C9C5BB] px-[10px] py-[6px] text-[9px] font-medium">
-                    <MessageCircle size={11} strokeWidth={1.6} /> Contactar
+                    <MessageCircle size={11} strokeWidth={1.6} /> {r.guest.contact}
                   </span>
                 </div>
               </div>
 
               <div className={`${card} p-[10px]`}>
                 <div className="flex items-center justify-between">
-                  <div className={cardTitle}>Alojamiento</div>
+                  <div className={cardTitle}>{r.lodging.title}</div>
                   <More />
                 </div>
                 <div className="mt-[8px] flex gap-[10px]">
-                  <img src={r.lodging.img} alt="" className="h-[84px] w-[96px] rounded-md object-cover" />
+                  <img src="/assets/card-domo.png" alt="" className="h-[84px] w-[96px] rounded-md object-cover" />
                   <div className="text-[8.5px] text-[#4A5058]">
                     <div className="font-serif text-[13px] leading-none text-ink">{r.lodging.name}</div>
                     <div className="mt-[8px] flex items-center gap-[6px]"><Users size={10} strokeWidth={1.6} />{r.lodging.capacity}</div>
                     <div className="mt-[5px] flex items-center gap-[6px]"><UtensilsCrossed size={10} strokeWidth={1.6} />{r.lodging.included}</div>
                     <div className="mt-[8px] flex items-center gap-1 text-[9px] text-[#2E6F7F] underline">
-                      Ver alojamiento <ArrowUpRight size={9} strokeWidth={1.8} />
+                      {r.lodging.view} <ArrowUpRight size={9} strokeWidth={1.8} />
                     </div>
                   </div>
                 </div>
@@ -217,13 +221,13 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
             </div>
 
             <div className={`${card} p-[10px]`}>
-              <div className={cardTitle}>Servicios y cargos</div>
+              <div className={cardTitle}>{r.charges.title}</div>
               <div className="mt-[6px] overflow-hidden rounded-md border border-[#ECE8DE] text-[8.5px] text-[#4A5058]">
                 <div className="grid grid-cols-[1fr_60px_70px_70px_22px] bg-[#F6F4EE] px-[8px] py-[5px]">
-                  <span>Concepto</span>
-                  <span className="text-center">Cantidad</span>
-                  <span className="text-center">Valor unitario</span>
-                  <span className="text-right">Subtotal</span>
+                  <span>{r.charges.heads.concept}</span>
+                  <span className="text-center">{r.charges.heads.qty}</span>
+                  <span className="text-center">{r.charges.heads.unit}</span>
+                  <span className="text-right">{r.charges.heads.subtotal}</span>
                   <span />
                 </div>
                 {r.charges.rows.map((row) => (
@@ -253,13 +257,13 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
               </div>
               <div className="mt-[6px] flex items-center justify-between text-[8.5px] text-[#4A5058]">
                 <span className="flex items-center gap-1 text-[#2E6F7F] underline">
-                  <Plus size={10} strokeWidth={1.8} /> Agregar servicio
+                  <Plus size={10} strokeWidth={1.8} /> {r.charges.add}
                 </span>
                 <span className="flex items-center gap-[10px]">
-                  Impuestos incluidos
-                  <span className="text-[9px] text-ink">Total de la reserva</span>
+                  {r.charges.taxes}
+                  <span className="text-[9px] text-ink">{r.charges.totalLabel}</span>
                   <span className="font-serif text-[15px] text-ink">
-                    {r.charges.total} <span className="font-sans text-[8px]">COP</span>
+                    {r.charges.total} <span className="font-sans text-[8px]">{r.charges.currency}</span>
                   </span>
                 </span>
               </div>
@@ -269,22 +273,22 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
               <div className={`${card} p-[10px]`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-[7px]">
-                    <div className={cardTitle}>Notas de la estadía</div>
-                    <span className="flex items-center gap-1 rounded-full bg-[#F3EDE3] px-[7px] py-[2px] text-[7.5px] text-[#6B5A4E]">
-                      <Lock size={7} strokeWidth={1.8} /> Nota interna
+                    <div className={cardTitle}>{r.notes.title}</div>
+                    <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#F3EDE3] px-[7px] py-[2px] text-[7.5px] text-[#6B5A4E]">
+                      <Lock size={7} strokeWidth={1.8} /> {r.notes.tag}
                     </span>
                   </div>
                   <More />
                 </div>
-                <p className="mt-[7px] rounded-md bg-[#FBF4EA] p-[8px] text-[8.5px] leading-[1.45] text-[#4A5058]">{r.notes}</p>
+                <p className="mt-[7px] rounded-md bg-[#FBF4EA] p-[8px] text-[8.5px] leading-[1.45] text-[#4A5058]">{r.notes.text}</p>
               </div>
               <div className={`${card} p-[10px]`}>
                 <div className="flex items-center justify-between">
-                  <div className={cardTitle}>Preparación de llegada</div>
+                  <div className={cardTitle}>{r.checklist.title}</div>
                   <More />
                 </div>
                 <ul className="m-0 mt-[6px] flex list-none flex-col gap-[5px] p-0 text-[8.5px] text-[#4A5058]">
-                  {r.checklist.map((c) => (
+                  {r.checklist.items.map((c) => (
                     <li key={c.title} className="flex items-start gap-[7px]">
                       <span
                         className={`mt-px grid h-[14px] w-[14px] shrink-0 place-items-center rounded-full border ${c.done ? "border-[#2E7F74] bg-[#2E7F74] text-white" : "border-[#C9C5BB]"}`}
@@ -300,7 +304,7 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                           </>
                         )}
                       </span>
-                      <span className="text-[7.5px] text-[#8A8F96]">{c.when}</span>
+                      <span className="whitespace-nowrap text-[7.5px] text-[#8A8F96]">{c.when}</span>
                     </li>
                   ))}
                 </ul>
@@ -312,12 +316,12 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
           <div className="flex min-w-0 flex-col gap-[8px]">
             <div className={`${card} p-[11px]`}>
               <div className="flex items-center justify-between">
-                <div className="font-serif text-[15px] leading-none">Resumen de pago</div>
-                <span className="flex items-center gap-[5px] rounded-full bg-[#F6DDD3] px-2 py-[4px] text-[8.5px] text-[#B65330]">
-                  <span className="h-[8px] w-[8px] rounded-full bg-[#CF6A45]" /> Saldo pendiente
+                <div className="font-serif text-[15px] leading-none">{r.payment.title}</div>
+                <span className="flex items-center gap-[5px] whitespace-nowrap rounded-full bg-[#F6DDD3] px-2 py-[4px] text-[8.5px] text-[#B65330]">
+                  <span className="h-[8px] w-[8px] rounded-full bg-[#CF6A45]" /> {r.payment.badge}
                 </span>
               </div>
-              <div className="mt-[8px] text-[8.5px] text-[#6B7178]">Por cobrar</div>
+              <div className="mt-[8px] text-[8.5px] text-[#6B7178]">{r.payment.toCollect}</div>
               <div className="font-serif text-[27px] leading-tight">{r.payment.pending}</div>
               <div className="mt-[4px] flex items-center gap-[8px]">
                 <div className="h-[6px] flex-1 rounded-[3px] bg-[#E7E5DC]">
@@ -327,15 +331,15 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
               </div>
               <div className="mt-[8px] grid grid-cols-3 text-[8.5px] text-[#6B7178]">
                 <div>
-                  Total
-                  <div className="font-serif text-[12px] text-ink">{r.payment.total}</div>
+                  {r.payment.total}
+                  <div className="font-serif text-[12px] text-ink">{r.payment.totalValue}</div>
                 </div>
                 <div className="border-l border-[#ECE8DE] pl-[8px]">
-                  Pagado
-                  <div className="font-serif text-[12px] text-ink">{r.payment.paid}</div>
+                  {r.payment.paid}
+                  <div className="font-serif text-[12px] text-ink">{r.payment.paidValue}</div>
                 </div>
                 <div className="border-l border-[#ECE8DE] pl-[8px]">
-                  Pendiente
+                  {r.payment.pendingLabel}
                   <div className="font-serif text-[12px] text-[#B65330]">{r.payment.pending}</div>
                 </div>
               </div>
@@ -350,19 +354,19 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                 <span className="text-[9px] text-ink">{r.payment.advance.amount}</span>
               </div>
               <div className="mt-[8px] flex items-center justify-center gap-[6px] rounded-md border border-[#C9C5BB] py-[6px] text-[9px] font-medium">
-                <Link2 size={10} strokeWidth={1.8} /> Enviar enlace de pago
+                <Link2 size={10} strokeWidth={1.8} /> {r.payment.link}
               </div>
             </div>
 
             <div className={`${card} p-[11px]`}>
-              <div className="font-serif text-[14px] leading-none">Actividad reciente</div>
+              <div className="font-serif text-[14px] leading-none">{r.activity.title}</div>
               <ul className="m-0 mt-[7px] flex list-none flex-col p-0">
-                {r.activity.map((a, i) => {
+                {r.activity.items.map((a, i) => {
                   const st = activityIcon[a.kind];
                   const AIcon = st.icon;
                   return (
                     <li key={a.title} className="relative flex gap-[8px] pb-[7px]">
-                      {i < r.activity.length - 1 && <span className="absolute left-[8px] top-[18px] h-[calc(100%-14px)] w-px bg-[#D3D8C7]" />}
+                      {i < r.activity.items.length - 1 && <span className="absolute left-[8px] top-[18px] h-[calc(100%-14px)] w-px bg-[#D3D8C7]" />}
                       <span className="z-[1] grid h-[17px] w-[17px] shrink-0 place-items-center rounded-full" style={{ background: st.bg, color: st.fg }}>
                         <AIcon size={9} strokeWidth={2.2} />
                       </span>
@@ -377,26 +381,26 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
                 })}
               </ul>
               <div className="flex items-center gap-1 text-[8px] text-[#2E6F7F] underline">
-                Ver historial completo <ArrowRight size={9} strokeWidth={1.8} />
+                {r.activity.viewAll} <ArrowRight size={9} strokeWidth={1.8} />
               </div>
             </div>
 
             <div className={`${card} p-[10px]`}>
               <div className="flex items-center justify-between">
-                <div className="text-[9.5px] font-medium">Comunicación con el huésped</div>
+                <div className="text-[9.5px] font-medium">{r.communication.title}</div>
                 <More />
               </div>
               <div className="mt-[6px] flex items-center gap-[5px] text-[8px] font-medium">
-                <span className="flex items-center gap-1 rounded-md border border-[#C9C5BB] px-[7px] py-[5px]">
-                  <Mail size={9} strokeWidth={1.6} /> Enviar correo
+                <span className="flex items-center gap-1 whitespace-nowrap rounded-md border border-[#C9C5BB] px-[7px] py-[5px]">
+                  <Mail size={9} strokeWidth={1.6} /> {r.communication.email}
                 </span>
-                <span className="flex items-center gap-1 rounded-md border border-[#C9C5BB] px-[7px] py-[5px]">
-                  <MessageCircle size={9} strokeWidth={1.6} /> Enviar WhatsApp
+                <span className="flex items-center gap-1 whitespace-nowrap rounded-md border border-[#C9C5BB] px-[7px] py-[5px]">
+                  <MessageCircle size={9} strokeWidth={1.6} /> {r.communication.whatsapp}
                 </span>
                 <span className="ml-auto text-[7px] font-normal leading-[1.3] text-[#8A8F96]">
-                  Último mensaje:
+                  {r.communication.last}
                   <br />
-                  hace 2 horas
+                  {r.communication.lastValue}
                 </span>
               </div>
             </div>
@@ -404,7 +408,7 @@ export function ReservationDetail({ label = "Diseño conceptual", minScale = 0 }
         </div>
 
         <div className="mt-[8px] flex justify-end px-[14px]">
-          <span className="rounded-[5px] border border-[#E4DFD3] bg-[#F1EEE6] px-3 py-[4px] text-[10px] text-[#4A5058]">{label}</span>
+          <span className="rounded-[5px] border border-[#E4DFD3] bg-[#F1EEE6] px-3 py-[4px] text-[10px] text-[#4A5058]">{r.conceptLabel}</span>
         </div>
       </div>
     </FitCanvas>

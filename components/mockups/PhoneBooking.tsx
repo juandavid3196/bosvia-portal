@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { ChevronDown, Menu, Mountain } from "lucide-react";
-import { propertySite as site } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
 /** Teléfono de 210×420 con la ficha de reserva de Cabaña Roble. */
-export function PhoneBooking() {
+export function PhoneBooking({ site }: { site: Dictionary["site"] }) {
   return (
     <div className="absolute left-[590px] top-[104px] h-[420px] w-[210px] rounded-[32px] bg-[#1D2423] p-[9px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.55)]">
       <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-surface font-sans text-ink">
@@ -27,22 +27,22 @@ export function PhoneBooking() {
           </div>
           <div className="mt-[9px] grid grid-cols-2 rounded-[5px] border border-[#ECE8DE] bg-white">
             <div className="px-2 py-[6px]">
-              <div className="text-[#8A8F96]">Llegada</div>
-              <div className="font-medium text-ink">{site.arrival}</div>
+              <div className="text-[#8A8F96]">{site.arrival}</div>
+              <div className="font-medium text-ink">{site.arrivalDate}</div>
             </div>
             <div className="border-l border-[#ECE8DE] px-2 py-[6px]">
-              <div className="text-[#8A8F96]">Salida</div>
-              <div className="font-medium text-ink">{site.departure}</div>
+              <div className="text-[#8A8F96]">{site.departure}</div>
+              <div className="font-medium text-ink">{site.departureDate}</div>
             </div>
           </div>
           <div className="mt-[6px] flex items-center justify-between rounded-[5px] border border-[#ECE8DE] bg-white px-2 py-[6px]">
             <div>
-              <div className="text-[#8A8F96]">Huéspedes</div>
-              <div className="font-medium text-ink">{site.guests}</div>
+              <div className="text-[#8A8F96]">{site.guests}</div>
+              <div className="font-medium text-ink">{site.guestsValue}</div>
             </div>
             <ChevronDown size={10} stroke="#4A5058" strokeWidth={2} />
           </div>
-          <div className="mt-[9px] rounded-[5px] bg-terracotta p-2 text-center text-[10px] font-medium text-white">Reservar</div>
+          <div className="mt-[9px] rounded-[5px] bg-terracotta p-2 text-center text-[10px] font-medium text-white">{site.book}</div>
         </div>
       </div>
     </div>

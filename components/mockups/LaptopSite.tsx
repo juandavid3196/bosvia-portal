@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { ArrowRight, ChevronDown, Mountain } from "lucide-react";
-import { propertySite as site } from "@/lib/content";
+import { propertySiteCardImages } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
 /** Laptop de 720px de ancho con el sitio de reservas de demostración. */
-export function LaptopSite() {
+export function LaptopSite({ site }: { site: Dictionary["site"] }) {
   return (
     <>
       <div className="absolute left-0 top-0 w-[720px] rounded-t-2xl bg-[#1D2423] px-3 pt-3">
@@ -20,7 +21,7 @@ export function LaptopSite() {
                 <span key={n}>{n}</span>
               ))}
             </span>
-            <span className="rounded-full bg-forest px-4 py-[6px] text-[9px] text-white">Reservar</span>
+            <span className="rounded-full bg-forest px-4 py-[6px] text-[9px] text-white">{site.book}</span>
           </div>
 
           <div className="relative h-[170px]">
@@ -34,23 +35,23 @@ export function LaptopSite() {
 
           <div className="relative ml-[26px] mr-[110px] -mt-6 flex items-center gap-[14px] rounded-md bg-white p-[10px_12px] text-[9px] shadow-[0_8px_24px_-10px_rgba(9,37,36,0.3)]">
             <div className="flex flex-1 items-center justify-between">
-              <Field label="Llegada" value={site.arrival} />
+              <Field label={site.arrival} value={site.arrivalDate} />
               <ArrowRight size={12} stroke="#4A5058" strokeWidth={2} />
             </div>
             <div className="flex-1 border-l border-[#ECE8DE] pl-3">
-              <Field label="Salida" value={site.departure} />
+              <Field label={site.departure} value={site.departureDate} />
             </div>
             <div className="flex flex-1 items-center justify-between border-l border-[#ECE8DE] pl-3">
-              <Field label="Huéspedes" value={site.guests} />
+              <Field label={site.guests} value={site.guestsValue} />
               <ChevronDown size={11} stroke="#4A5058" strokeWidth={2} />
             </div>
-            <span className="whitespace-nowrap rounded bg-terracotta px-[14px] py-[9px] text-[10px] text-white">Elegir alojamiento</span>
+            <span className="whitespace-nowrap rounded bg-terracotta px-[14px] py-[9px] text-[10px] text-white">{site.chooseLodging}</span>
           </div>
 
           <div className="grid grid-cols-3 gap-3 py-[18px] pl-[26px] pr-[110px]">
-            {site.cards.map((c) => (
+            {site.cards.map((c, i) => (
               <div key={c.name} className="overflow-hidden rounded-md border border-[#ECE8DE] bg-white">
-                <img src={c.img} alt="" className="block h-[100px] w-full object-cover" />
+                <img src={propertySiteCardImages[i]} alt="" className="block h-[100px] w-full object-cover" />
                 <div className="px-[10px] py-2 text-[9px]">
                   <div className="font-serif text-[12px]">{c.name}</div>
                   <div className="mt-[2px] text-[#6B7178]">{c.price}</div>

@@ -1,10 +1,11 @@
 import { IconCircle } from "@/components/ui/IconCircle";
 import { Reveal } from "@/components/ui/Reveal";
-import { benefits } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-export function Benefits() {
+export function Benefits({ t }: { t: Dictionary }) {
+  const benefits = t.benefits.items;
   return (
-    <section aria-label="Beneficios" className="border-b border-line-soft bg-ivory">
+    <section aria-label={t.benefits.label} className="border-b border-line-soft bg-ivory">
       <div className="mx-auto grid max-w-[1364px] grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-0 gap-y-7 px-[clamp(20px,4vw,52px)] py-[clamp(28px,3.4vw,44px)]">
         {benefits.map((b, i) => (
           <Reveal

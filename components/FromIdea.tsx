@@ -4,9 +4,10 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { IconCircle } from "@/components/ui/IconCircle";
 import { NoteLine } from "@/components/ui/NoteLine";
 import { Reveal } from "@/components/ui/Reveal";
-import { fromIdea } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-export function FromIdea() {
+export function FromIdea({ t }: { t: Dictionary }) {
+  const fromIdea = t.fromIdea;
   return (
     <section id="desarrollo" aria-labelledby="dev-title" className="relative overflow-hidden bg-ivory">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 hidden aspect-[2087/754] min-[1080px]:block">
@@ -30,7 +31,7 @@ export function FromIdea() {
 
         <img
           src="/assets/p-mont.png"
-          alt="Montañas al atardecer"
+          alt={fromIdea.mountainsAlt}
           className="mt-8 block h-[220px] w-full rounded-[120px_0_120px_0] object-cover min-[1080px]:hidden"
         />
 

@@ -2,9 +2,10 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { IconCircle } from "@/components/ui/IconCircle";
 import { Reveal } from "@/components/ui/Reveal";
 import { ReservationDetail } from "@/components/mockups/ReservationDetail";
-import { product } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-export function ProductInside() {
+export function ProductInside({ t }: { t: Dictionary }) {
+  const product = t.product;
   return (
     <section id="producto" aria-labelledby="prod-title" className="bg-ivory">
       <div className="mx-auto max-w-[1364px] px-[clamp(20px,4vw,52px)] pb-[clamp(56px,6vw,88px)] pt-[clamp(40px,5vw,72px)]">
@@ -25,7 +26,7 @@ export function ProductInside() {
 
         <div className="mt-[clamp(32px,3.6vw,48px)] grid grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(28px,3vw,44px)] gap-y-10 min-[1100px]:grid-cols-[minmax(0,2.3fr)_minmax(0,1fr)]">
           <Reveal className="min-w-0">
-            <ReservationDetail minScale={0.6} />
+            <ReservationDetail t={t} minScale={0.6} />
             <p className="mt-[10px] text-[12px] text-paragraph min-[1080px]:hidden">{product.scrollHint}</p>
           </Reveal>
 

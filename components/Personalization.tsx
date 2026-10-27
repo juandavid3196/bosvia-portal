@@ -2,9 +2,11 @@ import type { CSSProperties } from "react";
 import { FitCanvas } from "@/components/ui/FitCanvas";
 import { Reveal } from "@/components/ui/Reveal";
 import { PropertyPreview } from "@/components/mockups/PropertyPreview";
-import { personalization } from "@/lib/content";
+import { personalizationSwatches } from "@/lib/content";
+import type { Dictionary } from "@/lib/dictionaries/es";
 
-export function Personalization() {
+export function Personalization({ t }: { t: Dictionary }) {
+  const personalization = t.personalization;
   const [l1, l2, l3, l4] = personalization.title;
   return (
     <section aria-labelledby="pers-title" className="overflow-hidden bg-sage-bg">
@@ -25,15 +27,15 @@ export function Personalization() {
           <p className="mt-5 max-w-[30ch] text-[clamp(16px,1.5vw,19px)] leading-[1.5] text-paragraph">
             {personalization.description}
           </p>
-          <ul aria-label="Paleta de ejemplo" className="m-0 mt-8 flex list-none flex-wrap gap-4 p-0">
-            {personalization.swatches.map((s) => (
+          <ul aria-label={personalization.paletteLabel} className="m-0 mt-8 flex list-none flex-wrap gap-4 p-0">
+            {personalizationSwatches.map((color, i) => (
               <li
-                key={s.name}
-                title={s.name}
+                key={color}
+                title={personalization.swatchNames[i]}
                 className="relative h-11 w-11 rounded-full transition duration-300 ease-reveal hover:-translate-y-1 hover:scale-110 hover:shadow-[0_10px_18px_-8px_rgba(9,37,36,0.5)]"
-                style={{ background: s.color }}
+                style={{ background: color }}
               >
-                <span className="sr-only">{s.name}</span>
+                <span className="sr-only">{personalization.swatchNames[i]}</span>
               </li>
             ))}
           </ul>
