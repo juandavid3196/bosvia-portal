@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="fit.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+</helmet>
+<div data-fit-outer="" style="width: 100%; position: relative;">
+<div data-fit-sizer="" style="position: relative;">
+<div data-fit="1000" data-fit-min="{{ minScale }}" role="img" aria-label="Vista conceptual del panel de Bosvia: calendario semanal de reservas de Bosque Alto" style="width: 1000px; position: absolute; top: 0; left: 0; transform-origin: top left; display: flex; background: #FBFAF6; border-radius: 12px; overflow: hidden; border: 1px solid #E4DFD3; box-shadow: 0 30px 60px -20px rgba(9,37,36,0.35), 0 8px 20px -8px rgba(9,37,36,0.18); font-family: Inter, sans-serif; color: #092524;">
+  <aside style="width: 172px; flex-shrink: 0; background: #103C34; padding: 22px 12px; display: flex; flex-direction: column; gap: 22px;">
+    <img src="assets/logo-dark-t.png" alt="bosvia" style="height: 34px; width: auto; align-self: flex-start; margin-left: 4px;">
+    <nav style="display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; color: #DCE5DD;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 6px; background: rgba(255,255,255,0.1); color: #FFFFFF;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 22V12h6v10"></path></svg>Inicio</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Calendario</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg>Reservas</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path><path d="M10 21v-5h4v5"></path></svg>Alojamientos</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Huéspedes</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Operación</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>Pagos</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"></path></svg>Reportes</div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"></path></svg>Ajustes</div>
+    </nav>
+  </aside>
+  <div style="flex: 1; min-width: 0; padding: 16px 22px 18px; display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid #ECE8DE;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 34px; height: 34px; border-radius: 8px; border: 1px solid #E4DFD3; display: grid; place-items: center; background: #FFFFFF;"><div style="width: 24px; height: 24px; border-radius: 50%; background: #2E7F74; display: grid; place-items: center; color: #FFFFFF;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"></path><path d="M12 22v-3"></path></svg></div></div>
+        <div style="display: flex; flex-direction: column; line-height: 1.2;"><span style="font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 4px;">Bosque Alto <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></span><span style="font-size: 10px; color: #8A8F96;">Propiedad</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 11px; color: #4A5058;">
+        <span style="display: flex; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Sábado, 3 octubre 2026</span>
+        <span style="width: 1px; height: 22px; background: #E4DFD3;"></span>
+        <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 26px; height: 26px; border-radius: 50%; background: #D9DFCD; display: grid; place-items: center; font-size: 10px; font-weight: 600; color: #103C34;">LJ</span>Laura <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></span>
+        <span style="display: flex; align-items: center; gap: 6px; background: #103C34; color: #FFFFFF; padding: 8px 12px; border-radius: 6px; font-weight: 500;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"></path></svg>Nueva reserva</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: 'DM Serif Display', serif; font-size: 27px; line-height: 1.1;">Buen día, Laura</div>
+      <div style="font-size: 11.5px; color: #6B7178; margin-top: 3px;">Así va la operación de Bosque Alto hoy.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+      <div style="border: 1px solid #ECE8DE; border-radius: 8px; padding: 12px; display: flex; gap: 10px; background: #FFFFFF;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #9DB59C; display: grid; place-items: center; color: #FFFFFF; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"></path></svg></div>
+        <div style="flex: 1;"><div style="font-size: 10.5px; color: #6B7178;">Ocupación</div><div style="font-family: 'DM Serif Display', serif; font-size: 21px; margin: 2px 0 6px;">7 de 10</div><div style="display: flex; align-items: center; gap: 6px;"><div style="flex: 1; height: 5px; border-radius: 3px; background: #E7E5DC;"><div style="width: 70%; height: 100%; border-radius: 3px; background: #2E7F74;"></div></div><span style="font-size: 9.5px; color: #6B7178;">70%</span></div></div>
+      </div>
+      <div style="border: 1px solid #ECE8DE; border-radius: 8px; padding: 12px; display: flex; gap: 10px; background: #FFFFFF;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D9DFCD; display: grid; place-items: center; color: #103C34; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"></path></svg></div>
+        <div><div style="font-size: 10.5px; color: #6B7178;">Llegadas</div><div style="font-family: 'DM Serif Display', serif; font-size: 21px; margin: 2px 0 3px;">3</div><div style="font-size: 9.5px; color: #6B7178;">hoy · sáb 3 oct</div></div>
+      </div>
+      <div style="border: 1px solid #ECE8DE; border-radius: 8px; padding: 12px; display: flex; gap: 10px; background: #FFFFFF;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D7704C; display: grid; place-items: center; color: #FFFFFF; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg></div>
+        <div><div style="font-size: 10.5px; color: #6B7178;">Salidas</div><div style="font-family: 'DM Serif Display', serif; font-size: 21px; margin: 2px 0 3px;">2</div><div style="font-size: 9.5px; color: #6B7178;">hoy · sáb 3 oct</div></div>
+      </div>
+      <div style="border: 1px solid #ECE8DE; border-radius: 8px; padding: 12px; display: flex; gap: 10px; background: #FFFFFF;">
+        <div style="width: 34px; height: 34px; border-radius: 50%; background: #D9DFCD; display: grid; place-items: center; color: #103C34; flex-shrink: 0;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+        <div><div style="font-size: 10.5px; color: #6B7178;">Por cobrar</div><div style="font-family: 'DM Serif Display', serif; font-size: 21px; margin: 2px 0 3px;">$840.000</div><div style="font-size: 9.5px; color: #6B7178;">3 reservas pendientes</div></div>
+      </div>
+    </div>
+    <div style="border: 1px solid #ECE8DE; border-radius: 8px; background: #FFFFFF; overflow: hidden;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px;">
+        <div style="font-family: 'DM Serif Display', serif; font-size: 16px;">Disponibilidad y reservas</div>
+        <div style="display: flex; align-items: center; gap: 14px; font-size: 9.5px; color: #4A5058;">
+          <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #2E7F74;"></span>Reservada</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #B9CBB0;"></span>Llegada</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #E3D6C4;"></span>Salida</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 9px; height: 9px; border-radius: 50%; background: #CF6A45;"></span>Mantenimiento</span>
+          <span style="display: flex; align-items: center; gap: 8px; margin-left: 8px;"><span style="width: 22px; height: 22px; border: 1px solid #E4DFD3; border-radius: 5px; display: grid; place-items: center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 18-6-6 6-6"></path></svg></span>3 – 9 octubre 2026<span style="width: 22px; height: 22px; border: 1px solid #E4DFD3; border-radius: 5px; display: grid; place-items: center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 18 6-6-6-6"></path></svg></span></span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 170px repeat(7, 1fr); font-size: 9.5px; color: #4A5058; background: #F6F4EE; border-top: 1px solid #ECE8DE; border-bottom: 1px solid #ECE8DE;">
+        <div style="padding: 8px 12px; font-weight: 500; color: #092524; align-self: center;">Alojamiento</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Sáb 3</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Dom 4</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Lun 5</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Mar 6</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Mié 7</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Jue 8</b><br>oct</div>
+        <div style="padding: 6px 0; text-align: center; border-left: 1px solid #ECE8DE; line-height: 1.3;"><b style="font-weight: 500; color: #092524;">Vie 9</b><br>oct</div>
+      </div>
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+        <div style="display: grid; grid-template-columns: 170px repeat(7, 1fr); grid-template-rows: 48px; border-bottom: 1px solid #F0EDE5; position: relative;">
+          <div style="grid-column: 1; grid-row: 1; display: flex; align-items: center; gap: 9px; padding: 0 12px;">
+            <img src="{{ r.img }}" alt="" style="width: 40px; height: 32px; border-radius: 5px; object-fit: cover;">
+            <div style="line-height: 1.35;"><div style="font-size: 10.5px; font-weight: 500;">{{ r.name }}</div><div style="font-size: 9px; color: #8A8F96;">{{ r.cap }}</div></div>
+          </div>
+          <sc-for list="{{ r.cells }}" as="c">
+            <div style="grid-row: 1; grid-column: {{ c.col }}; border-left: 1px solid #F0EDE5; display: grid; place-items: center; color: #C9C5BB; font-size: 10px;">—</div>
+          </sc-for>
+          <sc-for list="{{ r.blocks }}" as="b">
+            <div style="grid-row: 1; grid-column: {{ b.col }}; margin: 6px 3px; border-radius: 5px; background: {{ b.bg }}; color: {{ b.fg }}; display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 9.5px; line-height: 1.3; text-align: center; z-index: 1;">
+              <sc-if value="{{ b.dot }}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{ b.dot }}; flex-shrink: 0;"></span></sc-if>
+              <div><div style="font-weight: 500;">{{ b.who }}</div><div style="opacity: 0.85;">{{ b.when }}</div></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+      <div style="display: flex; justify-content: flex-end; padding: 10px 12px;">
+        <span style="font-size: 10.5px; color: #4A5058; background: #F1EEE6; border: 1px solid #E4DFD3; padding: 5px 12px; border-radius: 5px;">{{ label }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:600},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Diseño conceptual&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;minScale&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { [50, 300, 1000].forEach(t => setTimeout(() => window.__bfit && window.__bfit(), t)); }
+  renderVals() {
+    const teal = { bg: '#2E7F74', fg: '#FFFFFF' };
+    const dash = (cols) => cols.map(c => ({ col: String(c) }));
+    return {
+      label: this.props.label ?? 'Diseño conceptual',
+      minScale: String(this.props.minScale ?? 0),
+      rows: [
+        { name: 'Domo Niebla', cap: '2 personas', img: 'assets/card-domo.png', cells: dash([2,3,4,5,6,7,8]), blocks: [
+          { col: '2 / 4', bg: '#D3DECB', fg: '#103C34', dot: '#5E8A5C', who: 'Ana Torres', when: '3 – 5 oct' },
+          { col: '4 / 7', ...teal, who: 'Carlos Mejía', when: '5 – 8 oct' } ] },
+        { name: 'Cabaña Roble', cap: '4 personas', img: 'assets/card-cabana.png', cells: dash([2,3,4,5,6,7,8]), blocks: [
+          { col: '2 / 4', ...teal, who: 'María López', when: '2 – 4 oct' },
+          { col: '6 / 9', bg: '#EADFD1', fg: '#3F3428', dot: '#8A6A4A', who: 'Diego Ramírez', when: '6 – 9 oct' } ] },
+        { name: 'Domo Luna', cap: '2 personas', img: 'assets/card-luna.png', cells: dash([2,3,4,5,6,7,8]), blocks: [
+          { col: '5 / 7', ...teal, who: 'Sofía Vargas', when: '6 – 8 oct' } ] },
+        { name: 'Finca Río', cap: '6 personas', img: 'assets/p-cabana.png', cells: dash([2,3,4,5,6,7,8]), blocks: [
+          { col: '4 / 6', bg: '#CF6A45', fg: '#FFFFFF', dot: '#FFFFFF', who: 'Mantenimiento', when: '5 – 6 oct' },
+          { col: '7 / 9', ...teal, who: 'Juan Pablo Silva', when: '8 – 10 oct' } ] },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
