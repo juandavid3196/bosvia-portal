@@ -5,7 +5,7 @@ import { benefits } from "@/lib/content";
 export function Benefits() {
   return (
     <section aria-label="Beneficios" className="border-b border-line-soft bg-ivory">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-0 gap-y-7 px-[clamp(20px,4vw,52px)] py-[clamp(28px,3.4vw,44px)]">
+      <div className="mx-auto grid max-w-[1364px] grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-0 gap-y-7 px-[clamp(20px,4vw,52px)] py-[clamp(28px,3.4vw,44px)]">
         {benefits.map((b, i) => (
           <Reveal
             key={b.title}

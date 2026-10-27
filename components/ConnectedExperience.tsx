@@ -16,7 +16,7 @@ export function ConnectedExperience() {
         aria-hidden="true"
         className="absolute -left-5 bottom-0 w-[clamp(120px,13vw,190px)] opacity-85"
       />
-      <div className="relative mx-auto max-w-[1240px] px-[clamp(20px,4vw,52px)] pb-[clamp(56px,6vw,96px)] pt-[clamp(56px,6vw,88px)]">
+      <div className="relative mx-auto max-w-[1364px] px-[clamp(20px,4vw,52px)] pb-[clamp(56px,6vw,96px)] pt-[clamp(56px,6vw,88px)]">
         <Reveal>
           <Eyebrow>{experience.eyebrow}</Eyebrow>
           <h2

@@ -8,7 +8,7 @@ export function Personalization() {
   const [l1, l2, l3, l4] = personalization.title;
   return (
     <section aria-labelledby="pers-title" className="overflow-hidden bg-sage-bg">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(32px,4vw,64px)] gap-y-12 px-[clamp(20px,4vw,52px)] py-[clamp(56px,6vw,88px)] min-[900px]:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+      <div className="mx-auto grid max-w-[1364px] grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(32px,4vw,64px)] gap-y-12 px-[clamp(20px,4vw,52px)] py-[clamp(56px,6vw,88px)] min-[900px]:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
         <Reveal>
           <h2
             id="pers-title"

@@ -17,7 +17,7 @@ export function ClosingFooter() {
         className="object-cover object-right"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-forest/60 min-[1080px]:hidden" />
-      <div className="relative mx-auto max-w-[1240px] px-[clamp(20px,4vw,52px)] pt-[clamp(48px,5vw,64px)]">
+      <div className="relative mx-auto max-w-[1364px] px-[clamp(20px,4vw,52px)] pt-[clamp(48px,5vw,64px)]">
         <Reveal className="flex flex-wrap items-start gap-x-[clamp(32px,3.4vw,48px)] gap-y-7">
           <Logo variant="dark" className="mt-1 h-[clamp(44px,4.4vw,58px)]" />
           <div className="min-w-[min(100%,300px)] flex-1">

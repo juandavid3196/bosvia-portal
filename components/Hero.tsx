@@ -35,7 +35,7 @@ export function Hero() {
             className="object-cover object-center"
           />
         </div>
-        <div className="relative mx-auto h-full max-w-[1320px] px-[clamp(20px,4vw,52px)]">
+        <div className="relative mx-auto h-full max-w-[1452px] px-[clamp(20px,4vw,52px)]">
           <div className="absolute left-[clamp(20px,4vw,52px)] top-[24%] w-[40%] max-w-[520px]">
             <Title id="hero-title" className="motion-safe:animate-fade-up [animation-delay:150ms] whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
             <p className="motion-safe:animate-fade-up [animation-delay:350ms] mt-[clamp(20px,2.4vw,32px)] max-w-[34ch] text-[clamp(16px,1.4vw,19px)] leading-[1.5] text-paragraph [text-wrap:pretty]">

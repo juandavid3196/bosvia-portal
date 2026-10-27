@@ -12,7 +12,7 @@ export function FromIdea() {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 hidden aspect-[2087/754] min-[1080px]:block">
         <Image src="/assets/dev-bg.png" alt="" fill sizes="100vw" className="object-cover object-right-top" />
       </div>
-      <div className="relative mx-auto max-w-[1240px] px-[clamp(20px,4vw,52px)] pb-[clamp(48px,5vw,72px)] pt-[clamp(56px,6vw,88px)]">
+      <div className="relative mx-auto max-w-[1364px] px-[clamp(20px,4vw,52px)] pb-[clamp(48px,5vw,72px)] pt-[clamp(56px,6vw,88px)]">
         <Reveal className="max-w-full min-[1080px]:max-w-[66%]">
           <Eyebrow>{fromIdea.eyebrow}</Eyebrow>
           <h2

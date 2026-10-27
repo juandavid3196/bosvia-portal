@@ -7,7 +7,7 @@ import { product } from "@/lib/content";
 export function ProductInside() {
   return (
     <section id="producto" aria-labelledby="prod-title" className="bg-ivory">
-      <div className="mx-auto max-w-[1240px] px-[clamp(20px,4vw,52px)] pb-[clamp(56px,6vw,88px)] pt-[clamp(40px,5vw,72px)]">
+      <div className="mx-auto max-w-[1364px] px-[clamp(20px,4vw,52px)] pb-[clamp(56px,6vw,88px)] pt-[clamp(40px,5vw,72px)]">
         <Reveal>
           <Eyebrow>{product.eyebrow}</Eyebrow>
           <h2

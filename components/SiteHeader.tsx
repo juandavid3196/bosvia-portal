@@ -12,9 +12,14 @@ const focusRing = "focus-visible:outline focus-visible:outline-2 focus-visible:o
 
 function StatusPill({ className = "" }: { className?: string }) {
   return (
-    <span className={`flex items-center gap-[9px] whitespace-nowrap text-[13px] text-forest ${className}`}>
-      <span aria-hidden="true" className="h-2 w-2 rounded-full bg-status-dot" />
-      Producto en desarrollo
+    <span className={`flex items-center gap-[10px] whitespace-nowrap text-[13px] text-forest ${className}`}>
+      <span aria-hidden="true" className="relative grid h-2 w-2 place-items-center">
+        <span className="absolute inline-flex h-full w-full rounded-full bg-status-dot opacity-60 motion-safe:animate-ping" />
+        <span className="relative h-2 w-2 rounded-full bg-status-dot" />
+      </span>
+      <span className="font-medium">Producto en desarrollo</span>
+      <span aria-hidden="true" className="h-3 w-px bg-forest/30" />
+      <span className="text-forest/70">Emprendimiento propio</span>
     </span>
   );
 }
@@ -24,7 +29,7 @@ export function SiteHeader() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30 motion-safe:animate-fade-down">
-      <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-[clamp(20px,4vw,52px)] py-[18px]">
+      <div className="mx-auto flex max-w-[1452px] items-center justify-between gap-6 px-[clamp(20px,4vw,52px)] py-[18px]">
         <a
           href="#top"
           aria-label="Bosvia, inicio"
