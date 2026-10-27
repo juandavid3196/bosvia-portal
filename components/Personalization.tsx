@@ -41,7 +41,7 @@ export function Personalization({ t }: { t: Dictionary }) {
           </ul>
         </Reveal>
 
-        <Reveal className="min-w-0 min-[900px]:w-[109.5%]">
+        <Reveal className="min-w-0 min-[1440px]:w-[109.5%]">
           {/* Móvil: fichas apiladas a ancho casi completo; desde 640px, el lienzo escalado. */}
           <div role="img" aria-label={personalization.mockupLabel} className="flex flex-col min-[640px]:hidden">
             <PropertyPreview

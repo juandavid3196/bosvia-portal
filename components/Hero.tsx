@@ -24,7 +24,7 @@ export function Hero({ t }: { t: Dictionary }) {
       {/* Escritorio */}
       <section
         aria-labelledby="hero-title"
-        className="relative hidden h-[clamp(660px,56vw,900px)] overflow-hidden bg-ivory min-[1080px]:block"
+        className="relative hidden h-[var(--hero-h)] overflow-hidden bg-ivory [--hero-h:clamp(640px,min(56vw,100svh),900px)] min-[1080px]:block"
       >
         <div className="absolute inset-0 motion-safe:animate-ken-burns">
           <Image
@@ -46,10 +46,13 @@ export function Hero({ t }: { t: Dictionary }) {
               <Button href="#producto" arrow>{hero.primaryCta}</Button>
               <Button href="#flujo" variant="text" arrow>{hero.secondaryCta}</Button>
             </div>
-            <NoteLine className="mt-[clamp(28px,3vw,40px)] text-[13px] motion-safe:animate-fade-up [animation-delay:650ms]">{hero.note}</NoteLine>
+            <NoteLine className="mt-[clamp(28px,3vw,40px)] max-w-[34ch] text-[13px] motion-safe:animate-fade-up [animation-delay:650ms]">{hero.note}</NoteLine>
           </div>
-          <div className="absolute left-[42%] right-0 top-[28%] motion-safe:animate-panel-in [animation-delay:450ms]">
-            <OperationalPanel t={t} />
+          {/* El panel se limita por alto de pantalla: en laptops de 13" debe verse entero sin hacer scroll. */}
+          <div className="absolute left-[42%] right-[clamp(20px,4vw,52px)] top-[28%] motion-safe:animate-panel-in [animation-delay:450ms]">
+            <div className="ml-auto w-[min(100%,calc((100svh-var(--hero-h)*0.28-24px)/0.69))]">
+              <OperationalPanel t={t} />
+            </div>
           </div>
         </div>
       </section>
