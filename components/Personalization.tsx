@@ -8,11 +8,11 @@ export function Personalization() {
   const [l1, l2, l3, l4] = personalization.title;
   return (
     <section aria-labelledby="pers-title" className="overflow-hidden bg-sage-bg">
-      <div className="mx-auto grid max-w-[1364px] grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(32px,4vw,64px)] gap-y-12 px-[clamp(20px,4vw,52px)] py-[clamp(56px,6vw,88px)] min-[900px]:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+      <div className="mx-auto grid max-w-[1364px] grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(28px,3vw,44px)] gap-y-12 px-[clamp(20px,4vw,52px)] py-[clamp(56px,6vw,88px)] min-[900px]:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)]">
         <Reveal>
           <h2
             id="pers-title"
-            className="font-serif text-[clamp(34px,3.5vw,50px)] font-normal leading-[1.04] tracking-[-0.02em] text-ink"
+            className="font-serif text-[clamp(34px,3.1vw,44px)] font-normal leading-[1.04] tracking-[-0.02em] text-ink"
           >
             {l1}
             <br />
@@ -39,17 +39,18 @@ export function Personalization() {
           </ul>
         </Reveal>
 
-        <Reveal className="min-w-0">
-          <FitCanvas baseWidth={780} baseHeight={380} max={1.05} label={personalization.mockupLabel} className="font-sans">
+        <Reveal className="min-w-0 min-[900px]:w-[109.5%]">
+          <FitCanvas baseWidth={760} baseHeight={360} max={1.4} label={personalization.mockupLabel} className="font-sans">
+            {/* Fichas en perspectiva, una tras otra (efecto dominó): Cabaña Roble va detrás. */}
             <PropertyPreview
               variant="roble"
-              className="w-[400px] shadow-[0_24px_40px_-20px_rgba(9,37,36,0.45)]"
-              style={{ left: 382, top: 34, "--r": "2.5deg" } as CSSProperties}
+              className="w-[360px] shadow-[0_24px_40px_-20px_rgba(9,37,36,0.45)]"
+              style={{ left: 390, top: 36, "--ry": "-9deg" } as CSSProperties}
             />
             <PropertyPreview
               variant="niebla"
-              className="w-[395px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
-              style={{ left: 0, top: 10, "--r": "-1.5deg" } as CSSProperties}
+              className="w-[396px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
+              style={{ left: 16, top: 16, "--ry": "-9deg" } as CSSProperties}
             />
           </FitCanvas>
         </Reveal>

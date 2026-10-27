@@ -83,20 +83,8 @@ export const personalization = {
   mockupLabel:
     "Dos sitios de alojamiento con identidades distintas: Domo Niebla en verde bosque y Cabaña Roble en terracota",
   sites: {
-    niebla: {
-      name: "Domo Niebla",
-      lines: ["Naturaleza, comodidad", "y momentos inolvidables."],
-      amenities: ["Hasta 2 personas", "Cama queen", "Vista a la montaña", "Wi-Fi"],
-      icons: ["leaf", "bed", "mountain", "wifi"],
-    },
-    roble: {
-      name: "Cabaña Roble",
-      lines: ["Un refugio entre árboles", "para desconectar."],
-      amenities: ["Hasta 4 personas", "Cocina equipada", "Terraza privada", "Wi-Fi"],
-      icons: ["leaf", "utensils", "armchair", "wifi"],
-    },
-    nav: ["Inicio", "Alojamiento", "Experiencias", "Contacto"],
-    cta: "Ver disponibilidad →",
+    niebla: { img: "/assets/site-niebla.png", width: 1457, height: 1079 },
+    roble: { img: "/assets/site-roble.png", width: 1457, height: 1080 },
   },
 };
 
