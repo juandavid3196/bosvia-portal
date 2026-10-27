@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
@@ -8,16 +8,15 @@ import { closing } from "@/lib/content";
 export function ClosingFooter() {
   return (
     <footer className="relative overflow-hidden bg-forest text-ivory">
-      <img
-        src="/assets/panorama.png"
+      <Image
+        src="/assets/footer-bg.png"
         alt=""
         aria-hidden="true"
-        className="absolute right-0 top-0 h-full w-full object-cover min-[1080px]:w-[70%]"
+        fill
+        sizes="100vw"
+        className="object-cover object-right"
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(90deg,#103C34_0%,#103C34_32%,rgba(16,60,52,0.55)_62%,rgba(16,60,52,0.25)_100%)]"
-      />
+      <div aria-hidden="true" className="absolute inset-0 bg-forest/60 min-[1080px]:hidden" />
       <div className="relative mx-auto max-w-[1240px] px-[clamp(20px,4vw,52px)] pt-[clamp(48px,5vw,64px)]">
         <Reveal className="flex flex-wrap items-start gap-x-[clamp(32px,3.4vw,48px)] gap-y-7">
           <Logo variant="dark" className="mt-1 h-[clamp(44px,4.4vw,58px)]" />
@@ -36,7 +35,7 @@ export function ClosingFooter() {
         </Reveal>
 
         <div className="mt-[clamp(44px,5vw,64px)] flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-ivory/[0.22] pb-[26px] pt-[22px] text-[13px] text-sage-bg">
-          <Logo variant="dark" className="h-[34px]" />
+          <Image src="/assets/emblem.png" alt="Emblema del creador" width={1254} height={1254} className="h-10 w-10 motion-safe:animate-spin-slow" />
           <span aria-hidden="true" className="h-[26px] w-px bg-ivory/25" />
           <span>{closing.footerTagline}</span>
           <span className="ml-auto">{closing.footerStatus}</span>

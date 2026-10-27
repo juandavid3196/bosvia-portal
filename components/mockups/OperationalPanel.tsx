@@ -298,11 +298,11 @@ export function OperationalPanel({ minScale = 0 }: OperationalPanelProps) {
               </div>
               <div className="flex-1">
                 <div className="flex h-[78px] items-end justify-around border-b border-[#E4DFD3]">
-                  {directSales.weeks.map((w) => (
+                  {directSales.weeks.map((w, i) => (
                     <div
                       key={w.label}
-                      className="w-[22px] rounded-t-[2px] bg-[#2E7F74]"
-                      style={{ height: `${(w.value / directSales.max) * 100}%` }}
+                      className="w-[22px] origin-bottom rounded-t-[2px] bg-[#2E7F74] motion-safe:animate-grow-y"
+                      style={{ height: `${(w.value / directSales.max) * 100}%`, animationDelay: `${900 + i * 90}ms` }}
                     />
                   ))}
                 </div>

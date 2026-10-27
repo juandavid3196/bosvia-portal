@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { NoteLine } from "@/components/ui/NoteLine";
-import { Reveal } from "@/components/ui/Reveal";
 import { OperationalPanel } from "@/components/mockups/OperationalPanel";
 import { hero } from "@/lib/content";
 
@@ -26,27 +25,29 @@ export function Hero() {
         aria-labelledby="hero-title"
         className="relative hidden h-[clamp(660px,56vw,900px)] overflow-hidden bg-ivory min-[1080px]:block"
       >
-        <Image
-          src="/assets/hero-bg.png"
-          alt={hero.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <div className="absolute inset-0 motion-safe:animate-ken-burns">
+          <Image
+            src="/assets/hero-bg.png"
+            alt={hero.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
         <div className="relative mx-auto h-full max-w-[1320px] px-[clamp(20px,4vw,52px)]">
-          <Reveal className="absolute left-[clamp(20px,4vw,52px)] top-[24%] w-[40%] max-w-[520px]">
-            <Title id="hero-title" className="whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
-            <p className="mt-[clamp(20px,2.4vw,32px)] max-w-[34ch] text-[clamp(16px,1.4vw,19px)] leading-[1.5] text-paragraph [text-wrap:pretty]">
+          <div className="absolute left-[clamp(20px,4vw,52px)] top-[24%] w-[40%] max-w-[520px]">
+            <Title id="hero-title" className="motion-safe:animate-fade-up [animation-delay:150ms] whitespace-nowrap text-[min(5vw,70px)] tracking-[-0.035em]" />
+            <p className="motion-safe:animate-fade-up [animation-delay:350ms] mt-[clamp(20px,2.4vw,32px)] max-w-[34ch] text-[clamp(16px,1.4vw,19px)] leading-[1.5] text-paragraph [text-wrap:pretty]">
               {hero.description}
             </p>
-            <div className="mt-[clamp(24px,2.6vw,34px)] flex flex-wrap items-center gap-x-10 gap-y-[14px]">
+            <div className="motion-safe:animate-fade-up [animation-delay:500ms] mt-[clamp(24px,2.6vw,34px)] flex flex-wrap items-center gap-x-10 gap-y-[14px]">
               <Button href="#producto" arrow>{hero.primaryCta}</Button>
               <Button href="#flujo" variant="text" arrow>{hero.secondaryCta}</Button>
             </div>
-            <NoteLine className="mt-[clamp(28px,3vw,40px)] text-[13px]">{hero.note}</NoteLine>
-          </Reveal>
-          <div className="absolute left-[42%] right-0 top-[28%]">
+            <NoteLine className="mt-[clamp(28px,3vw,40px)] text-[13px] motion-safe:animate-fade-up [animation-delay:650ms]">{hero.note}</NoteLine>
+          </div>
+          <div className="absolute left-[42%] right-0 top-[28%] motion-safe:animate-panel-in [animation-delay:450ms]">
             <OperationalPanel />
           </div>
         </div>
@@ -55,8 +56,8 @@ export function Hero() {
       {/* Móvil */}
       <section aria-labelledby="hero-title-m" className="relative overflow-hidden bg-ivory pt-[110px] min-[1080px]:hidden">
         <div className="px-[22px]">
-          <Title id="hero-title-m" className="text-[clamp(44px,12.5vw,64px)]" />
-          <p className="mt-5 text-[16px] leading-[1.55] text-paragraph [text-wrap:pretty]">{hero.description}</p>
+          <Title id="hero-title-m" className="motion-safe:animate-fade-up text-[clamp(44px,12.5vw,64px)]" />
+          <p className="mt-5 text-[16px] leading-[1.55] text-paragraph [text-wrap:pretty] motion-safe:animate-fade-up [animation-delay:200ms]">{hero.description}</p>
           <div className="mt-[26px] flex flex-col items-start gap-[18px]">
             <Button href="#producto" arrow>{hero.primaryCta}</Button>
             <Button href="#flujo" variant="text" arrow>{hero.secondaryCta}</Button>
@@ -70,7 +71,7 @@ export function Hero() {
             className="block h-[360px] w-full rounded-tl-[140px] object-cover"
             style={{ objectPosition: "center top" }}
           />
-          <div className="relative -mt-[170px] px-[14px] pb-7">
+          <div className="relative -mt-[170px] px-[14px] pb-7 motion-safe:animate-panel-in [animation-delay:400ms]">
             <OperationalPanel minScale={0.42} />
           </div>
         </div>

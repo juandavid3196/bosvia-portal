@@ -40,11 +40,11 @@ export function ConnectedExperience() {
           <Reveal id="flujo" className="relative scroll-mt-10">
             <div aria-hidden="true" className="absolute bottom-[90px] left-[31px] top-10 w-px bg-[#D3D8C7]" />
             <ol className="m-0 flex list-none flex-col gap-[clamp(36px,4vw,56px)] p-0">
-              {experience.steps.map((s) => (
-                <li key={s.n} className="relative flex gap-[26px]">
+              {experience.steps.map((s, i) => (
+                <Reveal as="li" key={s.n} delay={i * 140} className="group relative flex gap-[26px]">
                   <span
                     aria-hidden="true"
-                    className="grid h-[62px] w-[62px] shrink-0 place-items-center rounded-full bg-sage font-serif text-[22px] text-forest"
+                    className="grid h-[62px] w-[62px] shrink-0 place-items-center rounded-full bg-sage font-serif text-[22px] text-forest transition duration-300 ease-reveal group-hover:scale-110 group-hover:bg-forest group-hover:text-ivory"
                   >
                     {s.n}
                   </span>
@@ -52,7 +52,7 @@ export function ConnectedExperience() {
                     <h3 className="font-serif text-[clamp(22px,2vw,27px)] font-normal leading-[1.15]">{s.title}</h3>
                     <p className="mt-[10px] max-w-[24ch] text-[16px] leading-[1.5] text-paragraph">{s.text}</p>
                   </div>
-                </li>
+                </Reveal>
               ))}
             </ol>
             <NoteLine line={30} className="mt-11 pl-3 text-[14px]">{experience.note}</NoteLine>

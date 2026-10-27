@@ -53,7 +53,7 @@ export function PropertyPreview({ variant, className = "", style }: PropertyPrev
   const nav = personalization.sites.nav;
 
   return (
-    <div className={`absolute overflow-hidden rounded-lg bg-surface ${className}`} style={style}>
+    <div className={`absolute rotate-[var(--r)] overflow-hidden rounded-lg bg-surface transition-transform duration-500 ease-reveal hover:z-10 hover:-translate-y-2 hover:rotate-0 ${className}`} style={style}>
       <div className="flex items-center justify-between px-4 py-[10px] text-[8px] text-white" style={{ background: t.navBg }}>
         <Logo variant="dark" className="h-[22px]" alt="" />
         <span className="flex gap-3">

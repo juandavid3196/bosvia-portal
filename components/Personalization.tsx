@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { FitCanvas } from "@/components/ui/FitCanvas";
 import { Reveal } from "@/components/ui/Reveal";
 import { PropertyPreview } from "@/components/mockups/PropertyPreview";
@@ -26,7 +27,12 @@ export function Personalization() {
           </p>
           <ul aria-label="Paleta de ejemplo" className="m-0 mt-8 flex list-none flex-wrap gap-4 p-0">
             {personalization.swatches.map((s) => (
-              <li key={s.name} title={s.name} className="relative h-11 w-11 rounded-full" style={{ background: s.color }}>
+              <li
+                key={s.name}
+                title={s.name}
+                className="relative h-11 w-11 rounded-full transition duration-300 ease-reveal hover:-translate-y-1 hover:scale-110 hover:shadow-[0_10px_18px_-8px_rgba(9,37,36,0.5)]"
+                style={{ background: s.color }}
+              >
                 <span className="sr-only">{s.name}</span>
               </li>
             ))}
@@ -38,12 +44,12 @@ export function Personalization() {
             <PropertyPreview
               variant="roble"
               className="w-[400px] shadow-[0_24px_40px_-20px_rgba(9,37,36,0.45)]"
-              style={{ left: 382, top: 34, transform: "rotate(2.5deg)" }}
+              style={{ left: 382, top: 34, "--r": "2.5deg" } as CSSProperties}
             />
             <PropertyPreview
               variant="niebla"
               className="w-[395px] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
-              style={{ left: 0, top: 10, transform: "rotate(-1.5deg)" }}
+              style={{ left: 0, top: 10, "--r": "-1.5deg" } as CSSProperties}
             />
           </FitCanvas>
         </Reveal>

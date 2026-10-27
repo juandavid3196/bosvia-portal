@@ -23,7 +23,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
+    <header className="absolute inset-x-0 top-0 z-30 motion-safe:animate-fade-down">
       <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-[clamp(20px,4vw,52px)] py-[18px]">
         <a
           href="#top"
@@ -41,7 +41,7 @@ export function SiteHeader() {
             <a
               key={l.href}
               href={l.href}
-              className={`whitespace-nowrap border-b border-transparent py-[6px] text-ink no-underline hover:border-terracotta focus-visible:outline-offset-4 ${focusRing}`}
+              className={`relative whitespace-nowrap py-[6px] text-ink no-underline after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100 focus-visible:outline-offset-4 ${focusRing}`}
             >
               {l.label}
             </a>
@@ -70,7 +70,7 @@ export function SiteHeader() {
       {menuOpen && (
         <div
           id="menu-movil"
-          className="mx-4 flex flex-col gap-1 rounded-[14px] border border-line bg-ivory p-5 shadow-[0_20px_40px_-20px_rgba(9,37,36,0.35)] min-[1080px]:hidden"
+          className="mx-4 flex flex-col gap-1 rounded-[14px] motion-safe:animate-menu-in border border-line bg-ivory p-5 shadow-[0_20px_40px_-20px_rgba(9,37,36,0.35)] min-[1080px]:hidden"
         >
           {navLinks.map((l) => (
             <a

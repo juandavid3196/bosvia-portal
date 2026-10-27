@@ -4,7 +4,7 @@ import { Arrow } from "@/components/ui/Icons";
 type Variant = "primary" | "outline" | "ivory" | "ghost-light" | "text";
 
 const base =
-  "inline-flex items-center gap-[14px] text-[15px] transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px]";
+  "group inline-flex items-center gap-[14px] text-[15px] transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px]";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -30,7 +30,11 @@ export function Button({ href, variant = "primary", arrow = false, className = "
   return (
     <a href={href} className={`${base} ${variants[variant]} ${className}`}>
       {children}
-      {arrow && <Arrow size={variant === "primary" ? 17 : 16} />}
+      {arrow && (
+        <span className="transition-transform duration-200 group-hover:translate-x-1">
+          <Arrow size={variant === "primary" ? 17 : 16} />
+        </span>
+      )}
     </a>
   );
 }

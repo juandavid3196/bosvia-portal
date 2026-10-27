@@ -29,20 +29,17 @@ export function ProductInside() {
             <p className="mt-[10px] text-[12px] text-paragraph min-[1080px]:hidden">{product.scrollHint}</p>
           </Reveal>
 
-          <Reveal
-            as="ul"
-            className="m-0 flex list-none flex-col gap-[clamp(28px,3.4vw,48px)] py-1 pl-0 min-[1100px]:border-l min-[1100px]:border-line min-[1100px]:pl-9"
-          >
-            {product.modules.map((m) => (
-              <li key={m.title} className="flex items-start gap-5">
+          <ul className="m-0 flex list-none flex-col gap-[clamp(28px,3.4vw,48px)] py-1 pl-0 min-[1100px]:border-l min-[1100px]:border-line min-[1100px]:pl-9">
+            {product.modules.map((m, i) => (
+              <Reveal as="li" key={m.title} delay={i * 110} className="group flex items-start gap-5">
                 <IconCircle name={m.icon} size={60} iconSize={26} />
                 <div className="pt-1">
                   <h3 className="font-serif text-[21px] font-normal leading-[1.2]">{m.title}</h3>
                   <p className="mt-[6px] text-[15px] leading-[1.5] text-paragraph">{m.text}</p>
                 </div>
-              </li>
+              </Reveal>
             ))}
-          </Reveal>
+          </ul>
         </div>
       </div>
     </section>
