@@ -24,6 +24,7 @@ export const es = {
     portfolio: "Volver al portafolio",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
+    menuEyebrow: "DESCUBRE BOSVIA",
     languageLabel: "Idioma",
     languages: { es: "Español", en: "English" },
   },
@@ -84,7 +85,6 @@ export const es = {
     eyebrow: "EL PRODUCTO POR DENTRO",
     title: ["Una vista clara de lo que pasa", "en tu alojamiento."],
     description: "Módulos previstos para conectar la experiencia del huésped con el trabajo del equipo.",
-    scrollHint: "Desliza para ver el detalle completo.",
     modules: [
       { icon: "calendar", title: "Calendario y reservas", text: "Disponibilidad y estadías organizadas." },
       { icon: "users", title: "Huéspedes y estadías", text: "Información para acompañar cada visita." },

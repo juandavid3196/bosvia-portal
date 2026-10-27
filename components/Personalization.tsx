@@ -42,6 +42,22 @@ export function Personalization({ t }: { t: Dictionary }) {
         </Reveal>
 
         <Reveal className="min-w-0 min-[900px]:w-[109.5%]">
+          {/* Móvil: fichas apiladas a ancho casi completo; desde 640px, el lienzo escalado. */}
+          <div role="img" aria-label={personalization.mockupLabel} className="flex flex-col min-[640px]:hidden">
+            <PropertyPreview
+              variant="niebla"
+              flow
+              className="w-[92%] shadow-[0_30px_50px_-20px_rgba(9,37,36,0.5)]"
+              style={{ "--ry": "-9deg" } as CSSProperties}
+            />
+            <PropertyPreview
+              variant="roble"
+              flow
+              className="-mt-2 ml-auto w-[92%] shadow-[0_24px_40px_-20px_rgba(9,37,36,0.45)]"
+              style={{ "--ry": "-9deg" } as CSSProperties}
+            />
+          </div>
+          <div className="hidden min-[640px]:block">
           <FitCanvas baseWidth={760} baseHeight={360} max={1.4} label={personalization.mockupLabel} className="font-sans">
             {/* Fichas en perspectiva, una tras otra (efecto dominó): Cabaña Roble va detrás. */}
             <PropertyPreview
@@ -55,6 +71,7 @@ export function Personalization({ t }: { t: Dictionary }) {
               style={{ left: 16, top: 16, "--ry": "-9deg" } as CSSProperties}
             />
           </FitCanvas>
+          </div>
         </Reveal>
       </div>
     </section>

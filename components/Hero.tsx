@@ -73,7 +73,7 @@ export function Hero({ t }: { t: Dictionary }) {
             style={{ objectPosition: "center top" }}
           />
           <div className="relative -mt-[170px] px-[14px] pb-7 motion-safe:animate-panel-in [animation-delay:400ms]">
-            <OperationalPanel t={t} minScale={0.42} />
+            <OperationalPanel t={t} />
           </div>
         </div>
       </section>

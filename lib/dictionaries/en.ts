@@ -21,6 +21,7 @@ export const en: Dictionary = {
     portfolio: "Back to portfolio",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    menuEyebrow: "DISCOVER BOSVIA",
     languageLabel: "Language",
     languages: { es: "Español", en: "English" },
   },
@@ -81,7 +82,6 @@ export const en: Dictionary = {
     eyebrow: "THE PRODUCT FROM THE INSIDE",
     title: ["A clear view of what is", "happening at your lodging."],
     description: "Planned modules that connect the guest experience with the team's work.",
-    scrollHint: "Swipe to see the full detail.",
     modules: [
       { icon: "calendar", title: "Calendar and bookings", text: "Availability and stays, organized." },
       { icon: "users", title: "Guests and stays", text: "Information to look after every visit." },

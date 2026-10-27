@@ -26,8 +26,7 @@ export function ProductInside({ t }: { t: Dictionary }) {
 
         <div className="mt-[clamp(32px,3.6vw,48px)] grid grid-cols-[minmax(0,1fr)] items-center gap-x-[clamp(28px,3vw,44px)] gap-y-10 min-[1100px]:grid-cols-[minmax(0,2.3fr)_minmax(0,1fr)]">
           <Reveal className="min-w-0">
-            <ReservationDetail t={t} minScale={0.6} />
-            <p className="mt-[10px] text-[12px] text-paragraph min-[1080px]:hidden">{product.scrollHint}</p>
+            <ReservationDetail t={t} />
           </Reveal>
 
           <ul className="m-0 flex list-none flex-col gap-[clamp(28px,3.4vw,48px)] py-1 pl-0 min-[1100px]:border-l min-[1100px]:border-line min-[1100px]:pl-9">
