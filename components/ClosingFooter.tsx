@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
-import { CONTACT_URL, PORTFOLIO_URL } from "@/lib/config";
+import { CONTACT_URL, WORK_URL } from "@/lib/config";
 import type { Dictionary } from "@/lib/dictionaries/es";
 
 export function ClosingFooter({ t }: { t: Dictionary }) {
@@ -29,7 +29,7 @@ export function ClosingFooter({ t }: { t: Dictionary }) {
             </h2>
             <p className="mt-3 text-[17px] leading-[1.5] text-sage-bg">{closing.text}</p>
             <div className="mt-[26px] flex flex-wrap gap-[18px]">
-              <Button href={PORTFOLIO_URL} variant="ivory" arrow>{closing.portfolioCta}</Button>
+              <Button href={WORK_URL} variant="ivory" arrow>{closing.portfolioCta}</Button>
               <Button href={CONTACT_URL} variant="ghost-light">{closing.contactCta}</Button>
             </div>
           </div>
